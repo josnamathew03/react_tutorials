@@ -26,6 +26,3 @@ class Message extends Component {
 }
 
 export default Message
-
-011-setState :
-

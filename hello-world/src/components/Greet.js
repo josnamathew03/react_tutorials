@@ -3,11 +3,11 @@ import React from "react";
 //     return <h1>Hello</h1>
 // }
 
-export const Greet = (props) => {
+export const Greet = ({name,last,children}) => {
     return (
         <div>
-            <h1>Hello, functional componet {props.name} {props.last}</h1>
-            {props.children}
+            <h1>Hello, functional componet {name} {last}</h1>
+            {children}
         </div>
     )
 }
