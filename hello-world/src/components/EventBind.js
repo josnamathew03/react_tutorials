@@ -7,10 +7,10 @@ export class EventBind extends Component {
       this.state = {
          message:'event binding'
       }
-    this.change = this.change.bind(this)
+    // this.change = this.change.bind(this)
 
     }
-    change(){
+     change = ()=>{
         this.setState({
             message:'done'
     })
@@ -29,8 +29,8 @@ export class EventBind extends Component {
 
       </div>
     )
-  }
-}
+  }                  
+}      
 
 export default EventBind
 

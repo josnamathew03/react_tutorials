@@ -8,24 +8,26 @@ import Counter from './components/Counter';
 import FunctionClick from './components/FunctionClick';
 import ClassClick from './components/ClassClick';
 import EventBind from './components/EventBind';
+import ParentComponent from './components/ParentComponent';
 
 function App() {
   return (
     <div className="App">
    {/* <Greet></Greet> */}
-    <Greet name="Josna" last="mathew"><p> this is children props</p></Greet>
+    {/* <Greet name="Josna" last="mathew"><p> this is children props</p></Greet> */}
      {/* <Greet name="Athira" last="k"> <button>Action</button> </Greet>
    <Greet name="Gouri" last="s"/>*/}
 
-     <Welcome name="Josna" last="mathew"><p> this is children props</p></Welcome>
+     {/* <Welcome name="Josna" last="mathew"><p> this is children props</p></Welcome> */}
    {/*<Welcome name="Athira" last="k"> <button>Action</button> </Welcome>
    <Welcome name="Gouri" last="s"/>
    <Hello/> */}
    {/* <Message/> */}
-   <Counter/>
+   {/* <Counter/>
     <FunctionClick></FunctionClick>
     <ClassClick></ClassClick>
-    <EventBind></EventBind>
+    <EventBind></EventBind> */}
+    <ParentComponent></ParentComponent>
    
     </div>
   );

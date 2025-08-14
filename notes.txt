@@ -236,7 +236,32 @@ constructor(props) {
     this.change = this.change.bind(this)
 
     }
+binding in constrructor
+4th way:
+  change = ()=>{
+        this.setState({
+            message:'done'
+    })
+    console.log(this)
+    }
 
+015-methods as props-
+when th eparent wants to communicate with child we use props
+when the child wants to communicate with parent we still use props: we pass in a reference to a method as props to the child
+
+
+
+015-methods as props-
+when th eparent wants to communicate with child we use props
+when the child wants to communicate with parent we still use props: we pass in a reference to a method as props to the child
+here we want to acess the parents method in child componet
+        <ChildComponent geetHandler ={this.greetparent}/>
+
+we pass the methos as props here
+passing parameter when calling the parent mr=ethod from child arrow function is used
+      <button onClick={()=>props.geetHandler('child')}>Greet Parent</button>
+now we can pasdd any number of parameters
+wecan padd this as destructuring too
 
 
 
