@@ -151,3 +151,67 @@ states:
 it is a object priatly maintained inside the container
 
 
+011-setState:
+if we try to do increment and display it without using set state the value wont update in the ui but the value will be changed 
+this is because we are not rerendering the page after every increment, so never modify state directly, use setstate
+when we edit state directly react wont know it wont render it on the ui , so render using setState
+calls to setstate are asynchronous, there are many codes that we want execute after implementing this setstate, to handle such situation there is callback function .
+setState accepts a second parameter ie a callback function. first parameter is the state object second parameter is the callback function.call back function will be an arrow function
+
+if i call increment five times at once , react will group this multiple setstate statements into a single update for better performance. herre all setstate are done in on single go and updated var;lues didint carry over between different calls
+when we want to update state based on previous state instead of  passing object we need to pass function as arguments. use arrow function and take previous state as parameter and use that to update instead of using current state
+second parametrer to this function is props .
+
+
+012-destructuring props and states:
+destructuring props in functional compom=nent:
+first way :instead of using props as parameter and using promps.name or promps.lsatname we can use paraments like {name,last} and use it directly 
+export const Greet = ({name,last}) => {
+    return (
+        <div>
+            <h1>Hello, functional componet {props.name} {props.last}</h1>
+            {props.children}
+        </div>
+    )
+}
+same as {props.name,props.last}
+
+second way: destructure inthw functon 
+export const Greet = props => {
+    const {name,last} = props
+    return (
+        <div>
+            <h1>Hello, functional componet {name} {last}</h1>
+    
+        </div>
+    )
+}
+destructuring in class components:
+while destructuring promps or states it is usually done inside render method 
+props can contain different properties we can destructure the only ones we want
+class Welcome extends Component{
+    render(){
+        const {name,last} = this.props
+        return <h1>Hello, class componet {name} {last} {children}</h1>
+    }
+}
+
+
+this is how destructuring works for states in class components
+        const {state1,state2} = this.state
+
+013-event  handling:
+when user interacts with components events are happend
+rfce: shortcut for creating reacr functional componenets
+react events are named using camelcase
+instead of passing it like string we are passing it inside {}
+after that inside functional component define your onclick function\
+on event handling cal function as reference dont call directly if you call it as function call it as a function and return it
+event handler is a function not a function call 
+
+rce : to create class component
+in class componet methods are acessed using this keyword
+
+
+
+
