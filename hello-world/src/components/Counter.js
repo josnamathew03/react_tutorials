@@ -22,21 +22,21 @@ class Counter extends Component {
         console.log(this.state.value)
     }
 
-    incrementFive() {
-        this.increment()
-        this.increment()
-        this.increment()
-        this.increment()
-        this.increment()
-
-    }
+    // incrementFive() {
+    //     this.increment()
+    //     this.increment() 
+    //     this.increment()
+    //     this.increment()
+    //     this.increment()
+ 
+    // }
 
     render() {
         return (
             <div>
                 <h1>Counter</h1>
                 <span>{this.state.value}</span>
-                <button onClick={() => this.incrementFive()}>inc</button>
+                <button onClick={() => this.increment()}>inc</button>
             </div>
         )
     }

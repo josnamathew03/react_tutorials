@@ -202,15 +202,41 @@ this is how destructuring works for states in class components
 
 013-event  handling:
 when user interacts with components events are happend
-rfce: shortcut for creating reacr functional componenets
+
 react events are named using camelcase
 instead of passing it like string we are passing it inside {}
 after that inside functional component define your onclick function\
 on event handling cal function as reference dont call directly if you call it as function call it as a function and return it
 event handler is a function not a function call 
-
+rfce: shortcut for creating reacr functional componenets
 rce : to create class component
+rconst : create constructor
 in class componet methods are acessed using this keyword
+
+014-binding event handlers: 
+this works on event handlers if we use the arrow function in JSX which keeps this from being lost.
+when you pass a method as a callback like an event handler the value of this inside mthod depends on how they are called 
+When the button is clicked, this.increment is called by the event system, not by your class instance — so this will be undefined in strict mode (which React uses).
+
+1st way:
+    <button onClick={this.change.bind(this)}>event bind</button> 
+ here every u pdate to the staew will cause to re render,it will be trouble for components that comtain nested components
+2nd way:
+use arrow function
+        <button onClick={()=>this.change()}>event bind</button>
+we are calling calling and returning the value so parenthesis is needed
+3rd way:
+official approach
+constructor(props) {
+      super(props)
+    
+      this.state = {
+         message:'event binding'
+      }
+    this.change = this.change.bind(this)
+
+    }
+
 
 
 
