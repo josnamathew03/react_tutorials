@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ElementFlags } from 'typescript'
 
 export class EventBind extends Component {
     constructor(props) {

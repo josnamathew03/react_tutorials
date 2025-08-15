@@ -263,6 +263,46 @@ passing parameter when calling the parent mr=ethod from child arrow function is 
 now we can pasdd any number of parameters
 wecan padd this as destructuring too
 
+// 016: conditional rendering:
+// -if else:
+// if else is ame as in js , 
+// it wont work inside jsx
+
+    // if(this.state.isLogged){
+    // return (
+    //   <div>
+    //     welcome josna
+    //   </div>
+    // )
+    // }
+    // else{
+    //     return(
+    //         <div>
+    //             welcome guests
+    //         </div>
+    //     )
+    // }
+
+// -element variables:
+// we use js variables to store Elements    
+ // let message
+    // if(this.state.isLogged){
+    //     message = 'welcome josna'
+    // }
+    // else{
+    //     message = 'welcome guests'
+    // }
+    // return <div>{message}</div>
+
+// -ternary condiotional operator
+ // return(
+    //     this.state.isLogged? <div>Welcome Josna</div> : <div>Welcome Guests</div>
+    // )
+
+// -short circuit operator
+// specific case of ternary operaotor
+// when we want to render either somethinf or noothing we use render method
+// return this.state.isLogged && <div>Welcome Josna</div>
 
 
 
