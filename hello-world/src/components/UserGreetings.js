@@ -10,7 +10,7 @@ import React, { Component } from 'react'
       }
     }
   render() {
-// return this.state.isLogged && <div>Welcome Josna</div>
+return this.state.isLogged && <div>Welcome Josna</div>
 
     // return(
     //     this.state.isLogged? <div>Welcome Josna</div> : <div>Welcome Guests</div>

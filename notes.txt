@@ -77,7 +77,7 @@ named export constant variable which is assigned with a function directly, impor
 006: class componets:
 es6 classes that can optionally receives object of properties which is referred to as props and returns html(jsx) which returns the ui
 it can maintain a private internal state, ie can maintain some info private to that component and use that info to describe user interface
-for class componet we need two imports  ract and class component from react
+for class componet we need two imports  react and class component from react
 extend componet class from react and implement a render methos which will return nul or html
 
 COMPARISON:
@@ -152,7 +152,7 @@ it is a object priatly maintained inside the container
 
 
 011-setState:
-if we try to do increment and display it without using set state the value wont update in the ui but the value will be changed 
+if we try to do increment and display it without using set state the value wont update in the ui but the value will be changed in the console
 this is because we are not rerendering the page after every increment, so never modify state directly, use setstate
 when we edit state directly react wont know it wont render it on the ui , so render using setState
 calls to setstate are asynchronous, there are many codes that we want execute after implementing this setstate, to handle such situation there is callback function .
@@ -169,8 +169,8 @@ first way :instead of using props as parameter and using promps.name or promps.l
 export const Greet = ({name,last}) => {
     return (
         <div>
-            <h1>Hello, functional componet {props.name} {props.last}</h1>
-            {props.children}
+            <h1>Hello, functional componet {name} {last}</h1>
+            {children}
         </div>
     )
 }
@@ -220,7 +220,7 @@ When the button is clicked, this.increment is called by the event system, not by
 
 1st way:
     <button onClick={this.change.bind(this)}>event bind</button> 
- here every u pdate to the staew will cause to re render,it will be trouble for components that comtain nested components
+ here every u pdate to the state will cause to re render,it will be trouble for components that comtain nested components
 2nd way:
 use arrow function
         <button onClick={()=>this.change()}>event bind</button>
@@ -244,10 +244,6 @@ binding in constrructor
     })
     console.log(this)
     }
-
-015-methods as props-
-when th eparent wants to communicate with child we use props
-when the child wants to communicate with parent we still use props: we pass in a reference to a method as props to the child
 
 
 
@@ -306,3 +302,10 @@ wecan padd this as destructuring too
 
 
 
+017- List rendering:
+using map method we ca niterate through each element and perform operation on each of then and  return values
+map mehod is js code so it needs to be evaluated so give it in curly braces
+i fwe want we can move out the list rendering logic and make return statement simple 
+refractor the jsx in seperate conponent while using an array of obkjects or so : component extraction for list rendering.
+When you render lists in React, often each item becomes repetitive JSX. 
+Instead of writing all the JSX inside the .map(), you can extract that JSX into a separate component and reuse it. 

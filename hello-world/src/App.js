@@ -10,7 +10,7 @@ import ClassClick from './components/ClassClick';
 import EventBind from './components/EventBind';
 import ParentComponent from './components/ParentComponent';
 import UserGreetings from './components/UserGreetings';
-
+import ListRendering17 from './components/ListRendering17';
 function App() {
   return (
     <div className="App">
@@ -29,10 +29,14 @@ function App() {
     <ClassClick></ClassClick>
     <EventBind></EventBind> */}
     {/* <ParentComponent></ParentComponent> */}
-    <UserGreetings/>
+    {/* <UserGreetings/> */}
+    <ListRendering17/>
+  
    
     </div>
   );
 }
 
 export default App;
+
+
