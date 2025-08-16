@@ -309,3 +309,60 @@ i fwe want we can move out the list rendering logic and make return statement si
 refractor the jsx in seperate conponent while using an array of obkjects or so : component extraction for list rendering.
 When you render lists in React, often each item becomes repetitive JSX. 
 Instead of writing all the JSX inside the .map(), you can extract that JSX into a separate component and reuse it. 
+
+018- list and keys:
+ each item in the list rendered using map operator should have a prop called key and value to key should be unique.
+ typically id of the item is a great choice for key prpop value
+ it can be anything but it should be unique
+ kwy prop is not accessible inn the child component, if we try to acss it it will be undefined
+ key prop is something reserved so i fwe want to use it pass it as someyhting else
+  keys help to identify react wwhich item is added removerd etc
+  react doesn’t just throw away and re-create DOM nodes every time.           
+Instead, it tries to re-use and update existing DOM efficiently (for speed).
+To do that, React needs a way to identify which item is which when the list changes.
+
+when we dont have id property we use index of the aray as keys
+
+019-index as a key antipattern -
+   uisng index as key will make many performance issues
+  when to ise index as a key:
+  the items dont have a unique id
+  the list is statuc and wont change
+  the list will never be reordered or filtered
+
+020- stling and css basics:
+ 1.css StyleSheetList
+ in seperate css file we can style using classname and apply these to our html by impoting
+multiple class names are given using template strings refer eg
+export default function StyleSheets20(props) {
+    const className = props.isClass ? 'primary' :''
+  return (
+    <div>
+      <h2 className={`${className} font-xl`}>Styling</h2>
+    </div>
+  )
+}
+
+ 2.inline styling
+it is specified using a object whose keys are camel cased version of normal styling. 
+import React from 'react'
+
+export default function InlineStyling20() {
+    const headStyle = {
+        fontSize : '100px',
+        color : 'blue'
+    }
+  return (
+    <div>
+      <h2 style={headStyle}>Inline</h2>
+    </div>
+  )
+}
+
+ 3.css modules
+file name must be suffixed with .modules.css
+A special .module.css file → styles are automatically scoped locally to the component.
+wile using regular css it is spplieed to every chind components may leads to css comflics
+css modules cannot be used like this because we reference the class name using style parameter
+
+ 4.css in js libraries
