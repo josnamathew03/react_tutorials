@@ -549,3 +549,12 @@ shalow comparison :
 
 
 --------------------------------------------------------------------------------------------------
+
+
+027- memo:
+memo  is used in functiomal Component to acheive the pure component behaviour
+export default React.memo(MemoCom)
+this sis called a higher order components
+React.memo accepts a component adds some things to that component and returns a new enhanced component in here it is avoiding re-rendering
+
+----------------------------------------------------------------------------------------------
