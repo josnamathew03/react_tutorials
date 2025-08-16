@@ -35,19 +35,20 @@ import PropTypes from 'prop-types'
         event.preventDefault()
     }
     render() {
+        const {userName, comments, dropDown} = this.state
         return (
                 <form onSubmit={this.handleForm}>              
                     <div>
                         <label>Username</label>
-                        <input name="username" value={this.state.userName} onChange={this.inputChange}></input>
+                        <input name="username" value={userName} onChange={this.inputChange}></input>
                     </div>
                     <div>
                         <label>Comments</label>
-                        <textarea value={this.state.comments} onChange={this.commetChange}></textarea>
+                        <textarea value={comments} onChange={this.commetChange}></textarea>
                     </div>
                     <div>
                         <label>Topics</label>
-                        <select value={this.state.dropDown} onChange={this.changeDrop}>
+                        <select value={dropDown} onChange={this.changeDrop}>
                             <option value='react'>React</option>
                             <option value='angular'>Angular</option>
                             <option value='flutter'>Flutter</option>

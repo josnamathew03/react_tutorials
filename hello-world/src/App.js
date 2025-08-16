@@ -16,7 +16,10 @@ import InlineStyling20 from './components/InlineStyling20';
 import './appStyle.css'
 import styles from './appStyles.module.css'
 import FormHandling21 from './components/FormHandling21';
-
+import { isCallSignatureDeclaration, parseIsolatedEntityName, updateBindingElement } from 'typescript';
+import { Component } from 'react';
+import LifeCycleA from './components/LifeCycleA';
+import LifeCycleUpdatesA from './components/LifeCycleUpdateA';
 function App() {
   return (
     <div className="App">
@@ -41,7 +44,9 @@ function App() {
     {/* <InlineStyling20/>
     <h2 className='error'>Error</h2>
     <h2 className={styles.sucess}>Sucess</h2> */}
-    <FormHandling21/>
+    {/* <FormHandling21/> */}
+      {/* <LifeCycleA/> */}
+      <LifeCycleUpdatesA/>
    
     </div>
   );
@@ -49,13 +54,9 @@ function App() {
 
 export default App;
 
-// 021 - basics in form handling:
-// controlled components : form elements controlled by react
-// consider a input tag with text, which changes based on  user interactions : we handle these kind of sutuatutio ns using state and setrstate
-// we set the value as this.state.value and then whenever there is cahnge in input a function is fired and we use setstate to pdate value and we call render method is called and new state is assigned as a value
 
-// form Submit is done by attaching the listener on Submit or attaching onSubmit to the button
-// give the button type as submit 
+
+
 
 
 
