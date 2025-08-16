@@ -8,6 +8,8 @@ react is declarative - tell it what you want snd it will build the actual ui
 handle efficient updating and rendering of components
 react native foe mobile applications
 
+--------------------------------------------------------------------------------------------
+
 002:
 create react applications
 1 - npx
@@ -21,6 +23,8 @@ npx is a npm package runner which gets install when we install node
  npm install create-react-app -g
  create-react-app project name
 we install createreact app package globally and then 
+
+--------------------------------------------------------------------------------------------
 
 003-follder structure:
 package.json: dependencies and scripts required for the file, some scripts to build start or even run the application
@@ -41,6 +45,8 @@ src:
     reportWebVItals.js : for progressive web aps
 
 index.html-> inex.js-> app.js-> html renderes
+
+--------------------------------------------------------------------------------------------
 
 004-components:
 component represent part of user interface
@@ -66,6 +72,8 @@ componets are of two types:
         )
 componets render html using jsx, we can influencw what we render using props and states
 
+--------------------------------------------------------------------------------------------
+
 005-functional components:
 js functions that can optionally receives object of properties which is reffered to as props and returns html(jsx) which rerturns tthe ui
 in components folder create a component with pascal case, for any component file first import react
@@ -73,6 +81,8 @@ use arrow function to define components
 
 while importind and exporting componets using default will allow us to import using any names and then use that name in the  function
 named export constant variable which is assigned with a function directly, import function uisng exact name and a curly braces 
+
+--------------------------------------------------------------------------------------------
 
 006: class componets:
 es6 classes that can optionally receives object of properties which is referred to as props and returns html(jsx) which returns the ui
@@ -94,8 +104,13 @@ class:
         complex ui logic 
         provide lifecycle hooks
         also called stateful/smart/container
+
+--------------------------------------------------------------------------------------------
+
 007-hooks update:
 hooks: are new feature lets you use state and other rect features without writing class, using this we can use states and lifecycle hooks in functional component
+
+--------------------------------------------------------------------------------------------
 
 008-jsx:
 javascript xml - extension to js language syntax
@@ -121,6 +136,8 @@ Differences from regular html:
     for = htmlfor
     camelcase property naming : onclick = onClick, tabindex = tabIndex
 
+--------------------------------------------------------------------------------------------
+
 009-props:
  props shortform of  property is the optional input a component can accept, allows the component to be dynamic
  pass a cariable from render app componet to greet compnet and use that inn the browser
@@ -133,6 +150,8 @@ Differences from regular html:
 
  react bundles all the attributes we specify into an object bundle and we call it as props,
  props are immutable
+
+--------------------------------------------------------------------------------------------
 
  010- state:
  like props second way  to implement what is rendered on the screen is state
@@ -150,6 +169,7 @@ states:
 
 it is a object priatly maintained inside the container
 
+--------------------------------------------------------------------------------------------
 
 011-setState:
 if we try to do increment and display it without using set state the value wont update in the ui but the value will be changed in the console
@@ -162,6 +182,7 @@ if i call increment five times at once , react will group this multiple setstate
 when we want to update state based on previous state instead of  passing object we need to pass function as arguments. use arrow function and take previous state as parameter and use that to update instead of using current state
 second parametrer to this function is props .
 
+--------------------------------------------------------------------------------------------
 
 012-destructuring props and states:
 destructuring props in functional compom=nent:
@@ -200,6 +221,8 @@ class Welcome extends Component{
 this is how destructuring works for states in class components
         const {state1,state2} = this.state
 
+--------------------------------------------------------------------------------------------
+
 013-event  handling:
 when user interacts with components events are happend
 
@@ -212,6 +235,8 @@ rfce: shortcut for creating reacr functional componenets
 rce : to create class component
 rconst : create constructor
 in class componet methods are acessed using this keyword
+
+--------------------------------------------------------------------------------------------
 
 014-binding event handlers: 
 this works on event handlers if we use the arrow function in JSX which keeps this from being lost.
@@ -245,6 +270,7 @@ binding in constrructor
     console.log(this)
     }
 
+--------------------------------------------------------------------------------------------
 
 
 015-methods as props-
@@ -258,6 +284,8 @@ passing parameter when calling the parent mr=ethod from child arrow function is 
       <button onClick={()=>props.geetHandler('child')}>Greet Parent</button>
 now we can pasdd any number of parameters
 wecan padd this as destructuring too
+
+--------------------------------------------------------------------------------------------
 
 // 016: conditional rendering:
 // -if else:
@@ -300,7 +328,7 @@ wecan padd this as destructuring too
 // when we want to render either somethinf or noothing we use render method
 // return this.state.isLogged && <div>Welcome Josna</div>
 
-
+--------------------------------------------------------------------------------------------
 
 017- List rendering:
 using map method we ca niterate through each element and perform operation on each of then and  return values
@@ -309,6 +337,8 @@ i fwe want we can move out the list rendering logic and make return statement si
 refractor the jsx in seperate conponent while using an array of obkjects or so : component extraction for list rendering.
 When you render lists in React, often each item becomes repetitive JSX. 
 Instead of writing all the JSX inside the .map(), you can extract that JSX into a separate component and reuse it. 
+
+--------------------------------------------------------------------------------------------
 
 018- list and keys:
  each item in the list rendered using map operator should have a prop called key and value to key should be unique.
@@ -323,12 +353,16 @@ To do that, React needs a way to identify which item is which when the list chan
 
 when we dont have id property we use index of the aray as keys
 
+--------------------------------------------------------------------------------------------
+
 019-index as a key antipattern -
    uisng index as key will make many performance issues
   when to ise index as a key:
   the items dont have a unique id
   the list is statuc and wont change
   the list will never be reordered or filtered
+
+--------------------------------------------------------------------------------------------
 
 020- stling and css basics:
  1.css StyleSheetList
@@ -367,6 +401,8 @@ css modules cannot be used like this because we reference the class name using s
 
  4.css in js libraries
 
+--------------------------------------------------------------------------------------------
+
 021 - basics in form handling:
 controlled components : form elements controlled by react
 consider a input tag with text, which changes based on  user interactions : we handle these kind of sutuatutio ns using state and setrstate
@@ -374,6 +410,8 @@ we set the value as this.state.value and then whenever there is cahnge in input 
 
 form Submit is done by attaching the listener on Submit or attaching onSubmit to the button
 give the button type as submit 
+
+--------------------------------------------------------------------------------------------
 
 // 022- component lifecycle methods:
 // when creating a component the component goes through several stages in its lifecycle, react provide build in methods using which we can override  at partivular stages in life cyle
@@ -390,6 +428,8 @@ give the button type as submit
 
 // error handliing - when there is error in rendering, in a lifecycle method, or int he constructor of any child compoennt
 // static getDerivedStateFromError, componentDidCatch
+
+--------------------------------------------------------------------------------------------
 
 023-mounting  lifecycle mthods:
 methods that is called when an instance of Component is d=createdf and inserted in to the dom 
@@ -408,6 +448,8 @@ render() - only required mthod
           after parents childre components lifecycle methods are also executed
 componetDidMount()- called only once and is invoked immedietly after a component and all its children components have been rendered to the dom
                     cause side effects  eg: interact with dom or perform any ajax calls to load data
+
+--------------------------------------------------------------------------------------------
 
 024: updating lifecycle methods:
 static getDerivedStateFromProps(props, state) - return either null or an object that represents the updated state of the component
@@ -438,3 +480,72 @@ static getDerivedStatesFromError(error)
 componentDidCatch(error,info)
 these are used during error in  the lifecyclemethod , or contrctor of any children component
 
+--------------------------------------------------------------------------------------------
+
+025- fragments:
+allow to group a list of clildren elements without having to add extra nodes in the dom 
+jsx return statements must be inside one tag seperate tags will cause errror
+but this leads to an extra div in the file
+we can replace the extra rnclosing tag with fragment which will not be loaded to the dom
+
+table and colummn eg
+
+can accepts key attribute when rendering list of items. rendering key for list is must in react.key is the only parameter that can be addded too react fragments
+     <React.Fragment>
+        {items.map(item => (
+            <React.Fragment key={items.id}>
+                <h1>{items.title}</h1>
+            </React.Fragment>
+            )  )}
+            <td>name</td>
+            <td>age</td>
+
+        </React.Fragment>
+empty opening and closing tags are shorthand for React.Fragment, but whike accepting key argumetn always specigy React.Fragment
+      <>
+        {items.map(item => (
+            <React.Fragment key={items.id}>
+                <h1>{items.title}</h1>
+            </React.Fragment>
+            )  )}
+            <td>name</td>
+            <td>age</td>
+
+        </>
+
+-------------------------------------------------------------------------------
+
+026- pure components-
+we have been creating class by extending the component class from react 
+we can create class by extending the pure component class from react
+
+rpce -shorthand
+
+when parent component render the children component also render unless we return fasle from shouldCOmponentUpdate()
+regular Component : it does not implement the shouldComponentUpdate method . it alwaays returns true by default
+pure componenent : it implements shouldComponentUpdate with a shallow props and state comparison
+                      it does shallow comparison with prevState with currentState and only re render if there is a difference
+                      regular component does not imploement this cj=heck so alwawys re render
+                      the the parent doesnt re render the childrens wont re render
+                      pure compon ents will remove unnessessory re renders
+                      donot mutate states or props while dealing with pure Component
+                      When you mutate an object or array:
+                      this.state.items.push("newItem"); // ❌ Mutation
+
+                      The reference stays the same(this.state.items still points to the same array).
+                    PureComponent compares old vs new by reference and thinks nothing has changed.
+                     Result: UI doesn’t update, even though the data inside did.
+                     Always return a new reference when updating:
+                     this.setState({
+                        items: [...this.state.items, "newItem"]  // ✅ Creates new array
+                      });
+
+                    TO AVOID unnecessary behaviour ensure all children components are also pure
+
+
+shalow comparison : 
+    primitive tyopes : a(sc)b returns true if a and b hsve the same value and are of the same type
+    complex types : a(sc)b returns true if a and b reference the exact same object
+
+
+--------------------------------------------------------------------------------------------------
