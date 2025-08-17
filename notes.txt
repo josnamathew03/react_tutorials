@@ -558,3 +558,53 @@ this sis called a higher order components
 React.memo accepts a component adds some things to that component and returns a new enhanced component in here it is avoiding re-rendering
 
 ----------------------------------------------------------------------------------------------
+
+
+028 - refs:
+can acess DOM nodes directly
+-create a ref usinfg React.createRef()
+use the ref using ref keywors
+         this.inputRef = React.createRef() //inside consdtructor
+        <input type='text' ref={this.inputRef}/> // inside jsx
+          componentDidMount(){
+        this.inputRef.current.focus()
+        console.log(this.inputRef)
+    }
+
+
+another thing using ref is to get the input
+  alert(this.inputRef.current.value)
+  -2nd way to create refs is callback method
+  we crrate a propery cbRef inside constructor and set it to null
+  thrn we create a method that eill assign DOM elemen to the rerfs we have just created
+      this.cbRef = null
+         this.setRef = e =>{
+          this.cbRef = e
+         }
+  then attch this ref to the input element
+  then using callback ref do focus and input acceptance
+  when component mounts it calls the callback function with the element as arguments an dthen it unmounts
+       if(this.cbRef){
+          this.cbRef.focus()
+
+        } //inside  compoennt didi mount
+
+------------------------------------------------------------------------------------
+
+
+029-refs with class componennts:
+refs can only be done in class componenets
+if you need a ref to a child component from a parent component  we ca do that
+
+---------------------------------------------------------------------
+
+030 - forward Refs
+technique foer automatically passing a component to one of its chiiildren
+we are using the refs in the parent to focus the input in child 
+for we use forward refs methhod
+write the child function as an arrow funciton
+to forearda ref we ussse react.forwarrdref method it takes a functional componet as parameter
+every componet receives props as its parameter but when we are passing compoonent to react.forward ref we givev ref as second argument
+
+-----------------------------------------------------------------------------
+

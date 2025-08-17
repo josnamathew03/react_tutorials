@@ -1,0 +1,22 @@
+import React, { Component } from 'react'
+
+ class ClassRefsChild extends Component {
+    constructor(props) {
+      super(props)
+    
+    this.inputRef = React.createRef()
+    }
+    inputFocus(){
+        this.inputRef.current.focus()
+    }
+    
+  render() {
+    return (
+      <div>
+        <input ref={this.inputRef}/>
+      </div>
+    )
+  }
+}
+
+export default ClassRefsChild
