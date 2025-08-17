@@ -25,6 +25,7 @@ import Table from './components/2component/Table';
 import PureAndReg from './components/2component/PureAndReg';
 import RefsDemo from './components/3component/RefsDemo';
 import ClassRefsParent from './components/3component/ClassRefsParent';
+import Portal from './components/4componentPortal/Portal';
 
 function App() {
   return (
@@ -56,11 +57,12 @@ function App() {
       {/* <Table/> */}
       {/* <PureAndReg /> */}
       {/* <RefsDemo/> */}
-      <ClassRefsParent/>
+      {/* <ClassRefsParent/> */}
+      <Portal/>
+      
     </div>
   );
 }
 
 export default App;
-
 

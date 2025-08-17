@@ -608,3 +608,23 @@ every componet receives props as its parameter but when we are passing compoonen
 
 -----------------------------------------------------------------------------
 
+031-portals:
+ it provides a way to render childrens into a dom node that exixts outside the DOM hierarchy of the parent component
+ we are using the native root div to enter everything in to the dom tree, portal provide a way to come out of that
+ inside indexedDB.html make another div portal-root
+ make anotherr functional coponent 
+ return ReactDOM.createPortal whichh takes two arguments first parameter is what to render (any jsx) and the second parameter is the DOM node to mount the element to
+function Portal() {
+  return ReactDOM.createPortal (
+    <h2>Portal</h2>,
+    document.getElementById('portal-root')
+  )
+}
+use cases:
+You don’t want modals buried inside nested divs (can cause CSS overflow, z-index issues).
+Portals render them at the top level (<div id="modal-root">) so they always overlay correctly.
+
+Even though a portal renders somewhere else in the DOM, events still bubble through the React component tree, not the DOM tree.
+in every other portal behave like every other child
+
+------------------------------------------------------------------------------
