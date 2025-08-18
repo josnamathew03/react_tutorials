@@ -685,3 +685,81 @@ in every other portal behave like every other child
 componentDidCatch : used to log the error, takes two parameters first the error and then the info ie the info about error. in devlopmetn react already log therse errors so no need to log them again
 
 ErrorBoundary catch errors  during rendering , in lifecycle and in constructor , it eont catch error in event handling for that we have to use normal try catch statements
+
+-----------------------------------------------------------------------------------------------
+
+033- higherOrder components part1:
+why is the need:
+in hovercounter and clickcounter we implement functions successfully but we are not reusing codes, if 10 different component needs counter functionality we will be writing codes over  and over
+we can reuse it by lifting the counter logic to parent component and pass as props. this will works if all the counter componets have the same parent, but if the component is scattered lifting the function to pareant os not the correct solution.
+it is basically used to share common functionality between components
+
+---------------------------------------------------------------------------------------------------------
+
+
+034 : higher orer componets part2:
+what is :
+HOC is a pattern where a function takes a component as an atgument and returns a new component
+  const NewComponent = higherOrderComponent(originalComponent) 
+it adds additional data or functionality to a component
+  const EnhancedComponent = higherOrderComponent(originalComponent) 
+ eg: const IronMan = withsuit(TonyStark)
+creating:
+  import React from 'react';
+  define an arrow function 
+  insdie that define a component which extends from React.Component and insdie render return originla component 
+  then for the arrow func return new componnet
+
+eg: import React from "react";
+
+const UpdatedComponent = OriginalComponent => {
+  class NewComponent extends React.Component {
+    render() {
+      return <OriginalComponent />
+    }
+  }
+  return NewComponent
+}
+
+export this UpdatedComponent and use it in ClickCounter and HoverCounter 
+while exportinf click and hover component wrap it inside the UpdatedComponent
+implement the constructor and counter method inside HOC component and pass it as props and use it
+naming the name for HOC file and component is given based on the functionality in camelcase
+parameter is usually names as WrappedComponent
+newCOmponent is the COmponent name with pascalcase
+
+----------------------------------------------------------------------------------------------------------
+
+
+035- HOC part3:
+passing down the props:
+if you pass props in app.js props is passed to the HOC not to the component that is passed
+using spread operator pass down the remaining props
+             {...this.props}
+this passes down the rmaining props that have been specified
+
+passing parameters to HOC:
+with the WrappedComponent we  can pass other arguments as we want
+
+--------------------------------------------------------------------------------------------------------------
+
+036- render props p1-
+another pattern to share code betweeen components
+
+---------------------------------------------------------------------------------------------------------
+
+036- render props p2:
+we can use a props whose value is a func to control what is actually rendered by the component eg:User.js
+render prop is used for sharing code between react components using a prop whose value is a function
+CounterLogic doesn’t decide UI.
+Instead, it delegates: “Hey parent, you tell me how to render, I’ll just give you the data (count) and actions (increment).”
+ClickComp only knows how to display count and use increment.
+It doesn’t care where they came from.
+CounterLogic gives count and increment.
+The render prop decides: “Okay, I’ll use ClickComp and feed it those values.”
+
+we can make render props using children props
+instead of passing it in render function we can enclose them inside component definition and use this.props.children
+
+-------------------------------------------------------------------------------------------------------------
+

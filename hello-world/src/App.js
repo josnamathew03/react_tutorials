@@ -28,6 +28,13 @@ import ClassRefsParent from './components/3component/ClassRefsParent';
 import Portal from './components/4componentPortal/Portal';
 import Hero from './components/5componentErr/Hero';
 import ErrorBoundary from './components/5componentErr/ErrorBoundary';
+import ClickCounter from './components/6componentHigher/ClickCounter';
+import HoverCounter from './components/6componentHigher/HoverCounter';
+import UpdatedComponent from './components/6componentHigher/withCounter';
+import ClickComp from './components/7componentRender/ClickComp';
+import HoverComp from './components/7componentRender/HoverComp';
+import User from './components/7componentRender/User';
+import CounterLogic from './components/7componentRender/CounterLogic';
 
 function App() {
   return (
@@ -72,15 +79,23 @@ function App() {
 
         <Hero heroName='joker' />
       </ErrorBoundary> */}
+{/* 
+      <ClickCounter age = '12'/>
+      <HoverCounter /> */}
 
+      {/* <ClickComp/>
+      <HoverComp/>
+      <User name = {(isLoggedIn)=>isLoggedIn?'jos':'guest'}/> */}
+      {/* <CounterLogic>{(count,increment) => <HoverComp count={count} increment={increment}/>}</CounterLogic>
+      <CounterLogic>{(count,increment) => <ClickComp count={count} increment={increment}/>}</CounterLogic> */}
 
+      
 
     </div>
   );
 }
-
+     
 export default App;
 
-// 033- higherOrder components part1:
 
 
