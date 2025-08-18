@@ -52,3 +52,24 @@ every time when we want t update the state value to a new state value use this m
 
 --------------------------------------------------------------------------------------------------------
 
+047- useState with object-
+with useState use object as a state variable
+state varialbe can be anything a string a boolean anumber an array or an object
+we are setting the first and last name as empty, so if we type firstname the last name is removed fromm the objet and vice vversa
+useState doent automatically merge or update the object. this is the key differrence to setstate
+setstate will merge the state whereas usestate donot merge the state you have too do it manually
+use spread operator to handle the manual merge
+      <input type='text' name='firstName' value={name.firstName} onChange={e=>setName({...name,firstName: e.target.value})}/>
+this will copy evrything in the name object and then just overwrites the ones that have Changed 
+
+-------------------------------------------------------------------------------------------------------------------
+
+048 - useState with array:
+incase of array useState wont automatically append item to the array
+we need to do it manually using spread operator
+    const addItem = ()=>{
+        setArray([...items,{
+            id: items.length,
+            value: Math.floor(Math.random() * 10) +1
+        }])
+    }
