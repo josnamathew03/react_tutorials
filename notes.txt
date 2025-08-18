@@ -829,3 +829,32 @@ function Dashboard() {
 }
 ---------------------------------------------------------------------------------------------------------
 
+041- react and HTTP:
+in web app(react app ) we need to fetch things from server and also send things to sserver
+react dosnt reaslly have a method to do this, it just render ui based on  props and states
+so just get data from server and adds it to te props or state.
+these all will be handled by a htttp library(axios)
+
+--------------------------------------------------------------------
+
+
+042 - http get requests:
+import axios
+create a state property which create a list of posts loaded
+axios request is made isnide the didComponentMount method, it executed only once when thhe component is mount
+axios.get() acceps api endpoint as string parameter
+axios is promise based library  we can add .then and catch blocks
+inside then using setstate set the response.data to post arrya
+
+------------------------------------------------------------------------------
+
+043 - http post requets:
+create a form to take 3 input fields store the data on state and onclicking submit we post the value
+formic which helps with forms
+reduxaxios middleware
+
+------------------------------------------------------------------------------------
+
+
+
+

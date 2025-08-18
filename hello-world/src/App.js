@@ -102,9 +102,4 @@ function App() {
 export default App;
 
 
-041- react and HTTP:
-in web app(react app ) we need to fetch things from server and also send things to sserver
-react dosnt reaslly have a method to do this, it just render ui based on  props and states
-so just get data from server and adds it to te props or state.
-these all will be handled by a htttp library(axios)
 
