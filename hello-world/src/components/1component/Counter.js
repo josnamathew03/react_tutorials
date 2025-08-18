@@ -19,7 +19,7 @@ class Counter extends Component {
                 console.log('callback value', this.state.value)
 
             })
-        console.log(this.state.value)
+        // console.log(this.state.value)
     }
 
     // incrementFive() {

@@ -10,7 +10,7 @@ import ClassClick from './components/1component/ClassClick';
 import EventBind from './components/1component/EventBind';
 import ParentComponent from './components/1component/ParentComponent';
 import UserGreetings from './components/1component/UserGreetings';
-// import ListRendering17 from './components/ListRendering17';
+import ListRendering17 from './components/2component/ListRendering17';
 import StyleSheets20 from './components/2component/StyleSheets20';
 import InlineStyling20 from './components/2component/InlineStyling20';
 // import './appStyle.css'
@@ -26,6 +26,8 @@ import PureAndReg from './components/2component/PureAndReg';
 import RefsDemo from './components/3component/RefsDemo';
 import ClassRefsParent from './components/3component/ClassRefsParent';
 import Portal from './components/4componentPortal/Portal';
+import Hero from './components/5componentErr/Hero';
+import ErrorBoundary from './components/5componentErr/ErrorBoundary';
 
 function App() {
   return (
@@ -58,11 +60,27 @@ function App() {
       {/* <PureAndReg /> */}
       {/* <RefsDemo/> */}
       {/* <ClassRefsParent/> */}
-      <Portal/>
-      
+      {/* <Portal/> */}
+      {/* <ErrorBoundary>
+        <Hero heroName='batman' />
+      </ErrorBoundary>
+      <ErrorBoundary>
+
+        <Hero heroName='superman' />
+      </ErrorBoundary>
+      <ErrorBoundary>
+
+        <Hero heroName='joker' />
+      </ErrorBoundary> */}
+
+
+
     </div>
   );
 }
 
 export default App;
+
+// 033- higherOrder components part1:
+
 

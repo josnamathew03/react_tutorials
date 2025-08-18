@@ -140,11 +140,11 @@ Differences from regular html:
 
 009-props:
  props shortform of  property is the optional input a component can accept, allows the component to be dynamic
- pass a cariable from render app componet to greet compnet and use that inn the browser
+ pass a variable from render app componet to greet compnet and use that inn the browser
  we specify props as attributes, to specify name propertyy we give name attribute
  in greet component add parameter to functional componet (props conventional way)
  we can render named properties or unknwon properties. unknown properties or html contents we want to pass is givven as component definition and  are rendered using reserved child property give them between opening and closing tags where the compnent is called and use it using props.children
- we can only return one html content sop if you want to return multiple things you need to wrap them all in one div
+ we can only return one html content so if you want to return multiple things you need to wrap them all in one div
 
  we can pass values for class component in the same way, but we have to use it using this.props.attribitename
 
@@ -283,13 +283,13 @@ we pass the methos as props here
 passing parameter when calling the parent mr=ethod from child arrow function is used
       <button onClick={()=>props.geetHandler('child')}>Greet Parent</button>
 now we can pasdd any number of parameters
-wecan padd this as destructuring too
+wecan pass this as destructuring too
 
 --------------------------------------------------------------------------------------------
 
 // 016: conditional rendering:
 // -if else:
-// if else is ame as in js , 
+// if else is same as in js , 
 // it wont work inside jsx
 
     // if(this.state.isLogged){
@@ -359,12 +359,12 @@ when we dont have id property we use index of the aray as keys
    uisng index as key will make many performance issues
   when to ise index as a key:
   the items dont have a unique id
-  the list is statuc and wont change
+  the list is static and wont change
   the list will never be reordered or filtered
 
 --------------------------------------------------------------------------------------------
 
-020- stling and css basics:
+020- styling and css basics:
  1.css StyleSheetList
  in seperate css file we can style using classname and apply these to our html by impoting
 multiple class names are given using template strings refer eg
@@ -397,7 +397,12 @@ export default function InlineStyling20() {
 file name must be suffixed with .modules.css
 A special .module.css file → styles are automatically scoped locally to the component.
 wile using regular css it is spplieed to every chind components may leads to css comflics
-css modules cannot be used like this because we reference the class name using style parameter
+css modules cannot be used like this because we reference the class name using style parameter. Because with CSS Modules the class names are converted into JavaScript objects.
+styles.title is not just "title".Behind the scenes React (with Webpack/Vite) generates a unique class name like:
+.title__3hd7a {
+  color: blue;
+  font-size: 24px;
+}
 
  4.css in js libraries
 
@@ -611,7 +616,7 @@ every componet receives props as its parameter but when we are passing compoonen
 031-portals:
  it provides a way to render childrens into a dom node that exixts outside the DOM hierarchy of the parent component
  we are using the native root div to enter everything in to the dom tree, portal provide a way to come out of that
- inside indexedDB.html make another div portal-root
+ inside indexed.html make another div portal-root
  make anotherr functional coponent 
  return ReactDOM.createPortal whichh takes two arguments first parameter is what to render (any jsx) and the second parameter is the DOM node to mount the element to
 function Portal() {
@@ -628,3 +633,55 @@ Even though a portal renders somewhere else in the DOM, events still bubble thro
 in every other portal behave like every other child
 
 ------------------------------------------------------------------------------
+
+// 032- errror boundary:
+// catch the error anywhere in the component tree and display fall bvack UI
+// a class compoennt that implememtd either one or both of the lifecycle methods getderivedstatefromerror or componentdiidcatch bercomes erroro boundary
+// static method getDerivedStatesFromError method is useed to render a fallback ui after an error is throen and the componnetDidCatch is used to log the eroor info
+// when error is happend entire ui get crash we want error to fallback to a ui and the remaining comonents shoulld be unaffected
+// create a class component for error boundary . create a state variable hasError and set it to false. in our static getDerivedstateFromErrror take error as  parametr , we return hasError as trrue. this is used to make the fallback Ui
+// in render method if(this.state.hasError) then display something
+// if there is no error we display 
+//         return this.props.children
+
+
+// class ErrorBoundary extends Component {
+
+//     constructor(props) {
+//         super(props)
+
+//         this.state = {
+//             hasError: false
+//         }
+//     }
+
+//     static getDerivedStateFromError(error) {
+//         return {
+//             hasError: true
+//         }
+//     }
+
+//     render() {
+//         if (this.state.hasError) {
+//             return (
+//               <h1>wrong</h1>
+//             )
+//         }
+//         return this.props.children
+
+//     }
+// }
+
+// wrap the hero component in this error component
+<ErrorBoundary>
+        <Hero heroName='batman' />
+        <Hero heroName='superman' />
+        <Hero heroName='joker' />
+      </ErrorBoundary> 
+// the ui actually wont change but if we close the error ui we can now see the displyed thing otherwise we wont see that , thats the only diff
+// where to place the ErrorBoundary:
+// placing like above if there is error in one of them the whole thing wont be displayed. instead wrap each hero component with ErrorBoundary
+
+componentDidCatch : used to log the error, takes two parameters first the error and then the info ie the info about error. in devlopmetn react already log therse errors so no need to log them again
+
+ErrorBoundary catch errors  during rendering , in lifecycle and in constructor , it eont catch error in event handling for that we have to use normal try catch statements
