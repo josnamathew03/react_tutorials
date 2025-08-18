@@ -763,3 +763,69 @@ instead of passing it in render function we can enclose them inside component de
 
 -------------------------------------------------------------------------------------------------------------
 
+
+038- context p1-
+consider a sytem with nested components we want to passdown a vslue as props to these highly nested componwnts to the last level, for that we need passdown them from parent to children then to chindrena and so on.
+without manually passing down data to every level of component tree we can use context api
+context provides a way to pass down daata to the compoenent tree without having to pass down manually every level
+
+---------------------------------------------------------------------------------------------------
+
+039 - context p2:
+pass the username from app Component and read that value in F using context api
+app-> conpoenntc->componente->componentf
+1.create the context
+in a new file create the context using React.createContext()
+every context object created using create context method comes with a provider and consumer react component. we need them in next step soassign them with suitable names and just export it
+
+2.provide a context value
+we provide the created context using provider component, only descendant component can consume this. so we give the value using value attribute 
+we are providing aa value which can be used by any children component
+
+3.consume the context value
+to consume we have to use consumer component . inside consumer component define a function, start with curly braces and include an arrow function.
+the function gets the value as parameter and we use that value within the react element
+
+-------------------------------------------------------------------------------------------------------------
+
+
+040 - context p3:
+-you can set a default value to the context
+it is set while creating context, ie passed as an argument to the createContext method
+no need to use userprovider jus use the userconsumer value will be accessible
+if the compoent doest have a matching provider above it we use default values
+
+- to consume context value therer is another way without using userConsume component
+export the usercontext itself 
+assign this usercontext to the contextType propery in the component we want to use
+in render method usercontext value will be available as this.context
+
+-multiple context can bwe consumed
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <UserContext.Provider value={{ name: "Josna", role: "Admin" }}>
+        <Dashboard />
+      </UserContext.Provider>
+    </ThemeContext.Provider>
+  );
+}
+
+function Dashboard() {
+  return (
+    <ThemeContext.Consumer>
+      {theme => (
+        <UserContext.Consumer>
+          {user => (
+            <div>
+              <h2>Theme: {theme}</h2>
+              <p>User: {user.name} ({user.role})</p>
+            </div>
+          )}
+        </UserContext.Consumer>
+      )}
+    </ThemeContext.Consumer>
+  );
+}
+---------------------------------------------------------------------------------------------------------
+

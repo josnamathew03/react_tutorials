@@ -17,7 +17,7 @@ import InlineStyling20 from './components/2component/InlineStyling20';
 // import styles from './appStyles.module.css'
 import FormHandling21 from './components/2component/FormHandling21';
 import { isCallSignatureDeclaration, parseIsolatedEntityName, updateBindingElement } from 'typescript';
-import { Component } from 'react';
+import { Component, createContext, useContext } from 'react';
 // import LifeCycleA from './components/LifeCycleA';
 // import LifeCycleUpdatesA from './components/LifeCycleUpdateA';
 import FragmentDemo from './components/2component/FragmentDemo';
@@ -35,6 +35,8 @@ import ClickComp from './components/7componentRender/ClickComp';
 import HoverComp from './components/7componentRender/HoverComp';
 import User from './components/7componentRender/User';
 import CounterLogic from './components/7componentRender/CounterLogic';
+import ComponentC from './components/8componetContext/ComponentC';
+import { UserProvider } from './components/8componetContext/userContext';
 
 function App() {
   return (
@@ -88,8 +90,10 @@ function App() {
       <User name = {(isLoggedIn)=>isLoggedIn?'jos':'guest'}/> */}
       {/* <CounterLogic>{(count,increment) => <HoverComp count={count} increment={increment}/>}</CounterLogic>
       <CounterLogic>{(count,increment) => <ClickComp count={count} increment={increment}/>}</CounterLogic> */}
+      <UserProvider value='josna'>
+        <ComponentC/>
+      </UserProvider>
 
-      
 
     </div>
   );
@@ -98,4 +102,9 @@ function App() {
 export default App;
 
 
+041- react and HTTP:
+in web app(react app ) we need to fetch things from server and also send things to sserver
+react dosnt reaslly have a method to do this, it just render ui based on  props and states
+so just get data from server and adds it to te props or state.
+these all will be handled by a htttp library(axios)
 
