@@ -1,0 +1,54 @@
+044-react hooks:
+it allows to use react features without having to write a class eg:state of a component
+cannot use hooks inside class
+why hooks?
+1st set:
+difficult to use this keyword
+remember to bind event handlers
+classes dont minify very well and make hot reloading very unreliable
+2nd set:
+there is no particular way to reuse stateful components logic
+HOC and render props patterns address this problem, we have to wrap our component to other components
+makes code harder to follow
+ther is a need to share stateful logic in a better way
+3rd set:
+create components for complex scenerios such as data fetching and subscribing to EventSource, relates codes are not organized in one place 
+eg: data fetching in componentDidMount and componentDIdUpdate
+eg: event listeners in componentDidMount and componentWillmount
+because of stateful logic we cannot break components into smaler ones
+
+NB:
+hooks dont contain many changes and is backward compatible
+classes wont be removed from react
+
+-------------------------------------------------------------------------------------------------
+
+045- useState Hook-
+useState is a hook that lets you add state to a react functional component
+create a Component
+
+initialize the state value OF COUNT TO ZERO
+import usseState
+then just call it 
+it can  accepts an argument which is initial value of state property, returns current value of state property and a method capable of updating the stste property
+uaing  array destruccturing we can accept the return value
+
+change the state value using setState
+
+rules for using hooks:
+only call hooks at the top level
+do not call hooks inside loops consitons or nested functions
+only call hooks from react functions component
+
+----------------------------------------------------------------------------------------------------
+
+046 - useState with prevState-
+changing state in hooks based on the prev state
+if there is a buttom to increment the value by 5 we loop 5 times and call setCount(count+1) method 5 times to  get the value
+the count will only increment by  one as we saw in class states
+instead of passing the newstate variable pass a function that has acess to previous state
+every time when we want t update the state value to a new state value use this methos
+            setCount(prev=>prev+1)
+
+--------------------------------------------------------------------------------------------------------
+
