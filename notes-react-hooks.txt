@@ -162,9 +162,60 @@ when we want to implement some component clean up code include it in a function 
 
 --------------------------------------------------------------------
 
+054 - useEffect with incorrect dependancy:
+IntervelClass.js - class implementation of intervel counter
+IntervelFun.js func implementation 
+we have passed empty dependency so that setIntervel is only called once
+dependency array is not the thing that specify when to rerun the code, it is a way to let react know everything that the eeffect must watch for changes
+by givung an empty array we are ignoring change in count variable, so count is only incremented once
+do not leave the dependency array empty if there  is change in variable
+if we specify previous state we dont need to the count as changing, because setcount will take care of that
+when we want to call a funcrion inside use effect we define a function and call it inside useeffect we forget the parameres for that function is a depenency
+just define th efunction within useeffect itself which help too see all sependencies
+
+specifying multiple useEffect,
+we can include multiple use effect calls in one component
+
+---------------------------------------------------------------------------------------------
+
+055 - fetching data with useEffect p1:
+DataFetching.js
+use useEffect to fetch data , we need data to be fetched only oncuechange, in here data fetching happens infinitly, to render that only once specify an empty dependency list to useEffect
+function DataFetching() {
+    const [posts,setPost] = useState([])
+    useEffect(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(response=>{
+            setPost(response.data)
+        }
+            
+        )
+        .catch(error=>console.log(error))
+    },[])
+  return (
+    <div>
+      <ul>
+        {
+            posts.map(post=><li key={post.id}>{post.title}</li>)
+        }
+      </ul>
+    </div>
+  )
+}
 
 
+----------------------------------------------------------------------------------------------------
 
+056 - fetching data with useEffect p2:
+fetching individual post by passing in the individual post id
+by specifying the id at the end of api we will get individual post specified by the id
+get id from inpput attrach it and send it to api
+now for each value of input we enter fetching is triggered
+
+057- fetching data with useeffect p3:
+
+create a button on clicking th e button the feteching will be triggered
+usually for this we add an eventlitener and onclick we fetch data , herer we are uisng useEffect
 
 
 

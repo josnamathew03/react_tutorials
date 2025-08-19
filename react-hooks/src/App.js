@@ -10,6 +10,9 @@ import HooksUseEffect from './2componentUseEffect/HooksUseEffect';
 import ClassMouse from './2componentUseEffect/ClassMouse';
 import HooksMouse from './2componentUseEffect/HooksMouse';
 import Toggle from './2componentUseEffect/Toggle';
+import IntervelClass from './2componentUseEffect/IntervelClass';
+import IntervelFun from './2componentUseEffect/IntervelFun';
+import DataFetching from './2componentUseEffect/DataFetching';
 
 function App() {
   return (
@@ -30,16 +33,15 @@ function App() {
 
     {/* <ClassMouse/> */}
     {/* <HooksMouse/> */}
-    <Toggle/>
+    {/* <Toggle/> */}
+    {/* <IntervelClass/> */}
+    {/* <IntervelFun/> */}
+    <DataFetching/>
     </div>
   );
 }
 
 export default App;
-
-
-
-
 
 
 
