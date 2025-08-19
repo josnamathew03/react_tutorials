@@ -283,8 +283,46 @@ we need count variacble displayed in the jsx, this is where useReducer comes in
  use reducer returns a pair of value which is obtained by array destructuring
  dispatch method alllow us to execute code corresponding to particular action
 
+import React,{useReducer} from 'react'
+
+function CounterReduce() {
+    const initialState = 0
+    const reducer = (state,action)=>{
+        switch(action){
+            case 'increment':
+                return state+1
+            case 'decrement':
+                return state-1
+            case 'reset':
+                return initialState
+            default:
+                return state
+        }
+    }
+    const[count,dispatch]=useReducer(reducer,initialState)
+    return (
+        <div>
+            <div>{count}</div>
+            <button onClick={()=>dispatch('increment')}>Increment</button>
+            <button onClick={()=>dispatch('decrement')}>Decrement</button>
+            <button onClick={()=>dispatch('reset')}>reset</button>
+        </div>
+    )
+}
+
+export default CounterReduce
+
 -------------------------------------------------------------------------------------------
 
+063 - useReducer complex state amd ation:
+we are building a useReducer with state and actions as objects
+set initialstate  an object
+action is also an object
+CounterComplex.js
+why using this:
+-when we have more buttons that increment or decrement value by 5 , we can use the action as object and pass value to dispatch and can use it in reducer function
+-state as an object , suppose we want two differernt counters. we can do this by ading a second counter to the state
+we have two properties in the state object and changing only one at a time, we have to modify the object to merge the retuen properties- this is done using spread operator
 
 -------------------------------------------------------------------------------------------
 

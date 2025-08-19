@@ -16,6 +16,10 @@ import DataFetching from './2componentUseEffect/DataFetching';
 
 import ComponentA from './3componentContext/ComponentA';
 
+import CounterReduce from './4ComponentReducer.js/CounterReduce';
+
+import CounterComplex from './4ComponentReducer.js/CounterComplex';
+
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext()
 
@@ -43,18 +47,23 @@ function App() {
       {/* <IntervelFun/> */}
       {/* <DataFetching/> */}
       {/* /////////////////////////////////////////////////////////////// */}
-      <UserContext.Provider value={'jos'}>
+
+      {/* <UserContext.Provider value={'jos'}>
         <ChannelContext.Provider value={'code'}>
           <ComponentA />
         </ChannelContext.Provider>
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+
+      {/* //////////////////////////////////////////////////////////// */}
+
+      {/* <CounterReduce/> */}
+      <CounterComplex/>
 
     </div>
   );
-}               
+}
 
 export default App;
-
 
 
 
