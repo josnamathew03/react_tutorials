@@ -212,10 +212,91 @@ by specifying the id at the end of api we will get individual post specified by 
 get id from inpput attrach it and send it to api
 now for each value of input we enter fetching is triggered
 
+------------------------------------------------------------------------------------------------------
+
 057- fetching data with useeffect p3:
 
 create a button on clicking th e button the feteching will be triggered
 usually for this we add an eventlitener and onclick we fetch data , herer we are uisng useEffect
+
+---------------------------------------------------------------------------------------------
+
+// 058 - usecontext hoooks p1:
+// context provides a way opass data through the component tree wit  hoyt having to pass props down manually at every level
+
+------------------------------------------------------------------------------------------
+
+// 059 - userContext hook p2:
+// create and use context as we learned in class context
+// multiple contexts can be created and used but it will make code ugly by unnecessary nesting to avoid that er can use useCOntext
+
+--------------------------------------------------------------------------------------
+
+// 060-userContext hook p3:
+// creating and provideing values remains the same, we make consumption of context value simpler
+// import { useContext } from 'react';
+// import necessary context
+// call useContext function passing in the created context as arguments andretutn the value in a variable and use it as we want
+
+// function ComponentC(){
+//     const user = useContext(UserContext)
+//     const channel = useContext(ChannelContext)
+//     return (
+//         <div>Component c {user} {channel}</div>
+//     )
+// }
+
+-------------------------------------------------------------------------------------------
+
+061- what and why of use reducer:
+useReducer is used for state management
+alternative to useState
+useState is built using useReducer
+when to use these two
+use reducer is related to reducer
+reduce vs useReducer:
+reduce:
+      Array.reduce(reducer,initialValue)
+      reducer function takes two para  - singleValue = reducer(acc,cur)
+      returns a single value
+
+useReducer:
+      useEffect(reducer,initialState)
+      reducer function takes two para - newState = reducer(currState, action)
+       returns a pair of values [newState, dispatch]
+
+
+-------------------------------------------------------------------------------------------
+
+062- useReducer (simple state & action):
+we are creating a counter with three button inrement, decrement, reset
+we need count variacble displayed in the jsx, this is where useReducer comes in
+ import { useReducer } from 'react';
+ useReducer is a function we simply needs to call it
+ it take two argument, useReducer(reducer, initialState)
+ sett these two parameters initialState as zero and reducer function which takes   two arguments and return one value
+ two values are currstate and actions the value returns is the  newState
+ this transition is done using the action parmeter
+ action is the instruction to reducer function based on the instruction it performs the necessary transition
+ in here we got 3 actions incre , decre, reset
+ we are doin gthis using switch statements
+ use reducer returns a pair of value which is obtained by array destructuring
+ dispatch method alllow us to execute code corresponding to particular action
+
+-------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------
 
 
 

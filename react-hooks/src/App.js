@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from 'react';
+import React, { Component, useEffect, useReducer, useState } from 'react';
 import './App.css';
 import ClassCounter from './1component/ClassCounter';
 import HookCounter from './1component/HookCounter';
@@ -14,6 +14,11 @@ import IntervelClass from './2componentUseEffect/IntervelClass';
 import IntervelFun from './2componentUseEffect/IntervelFun';
 import DataFetching from './2componentUseEffect/DataFetching';
 
+import ComponentA from './3componentContext/ComponentA';
+
+export const UserContext = React.createContext()
+export const ChannelContext = React.createContext()
+
 function App() {
   return (
     <div className="App">
@@ -26,20 +31,27 @@ function App() {
       {/* <HooksCounterObject/> */}
 
       {/* <HooksCounterArray/> */}
-{/* /////////////////////////////////////////////////////// */}
+      {/* /////////////////////////////////////////////////////// */}
 
-    {/* <ClassImple/> */}
-    {/* <HooksUseEffect/> */}
+      {/* <ClassImple/> */}
+      {/* <HooksUseEffect/> */}
 
-    {/* <ClassMouse/> */}
-    {/* <HooksMouse/> */}
-    {/* <Toggle/> */}
-    {/* <IntervelClass/> */}
-    {/* <IntervelFun/> */}
-    <DataFetching/>
+      {/* <ClassMouse/> */}
+      {/* <HooksMouse/> */}
+      {/* <Toggle/> */}
+      {/* <IntervelClass/> */}
+      {/* <IntervelFun/> */}
+      {/* <DataFetching/> */}
+      {/* /////////////////////////////////////////////////////////////// */}
+      <UserContext.Provider value={'jos'}>
+        <ChannelContext.Provider value={'code'}>
+          <ComponentA />
+        </ChannelContext.Provider>
+      </UserContext.Provider>
+
     </div>
   );
-}
+}               
 
 export default App;
 
