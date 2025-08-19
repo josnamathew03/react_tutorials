@@ -323,8 +323,12 @@ why using this:
 -when we have more buttons that increment or decrement value by 5 , we can use the action as object and pass value to dispatch and can use it in reducer function
 -state as an object , suppose we want two differernt counters. we can do this by ading a second counter to the state
 we have two properties in the state object and changing only one at a time, we have to modify the object to merge the retuen properties- this is done using spread operator
-
+we can maintain the state and actions as object 
 -------------------------------------------------------------------------------------------
+
+064 - multiple useReducer:
+we have writtten code for two counters, to update two counters we need to create extra  switcxh cases in reducer function
+when we need two counters with exact state transition  we have alternative use multiple use reducers making use of the same reducer function
 
 
 

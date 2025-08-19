@@ -19,6 +19,7 @@ import ComponentA from './3componentContext/ComponentA';
 import CounterReduce from './4ComponentReducer.js/CounterReduce';
 
 import CounterComplex from './4ComponentReducer.js/CounterComplex';
+import CounterMulti from './4ComponentReducer.js/CounterMulti';
 
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext()
@@ -57,7 +58,8 @@ function App() {
       {/* //////////////////////////////////////////////////////////// */}
 
       {/* <CounterReduce/> */}
-      <CounterComplex/>
+      {/* <CounterComplex/> */}
+      <CounterMulti/>
 
     </div>
   );
