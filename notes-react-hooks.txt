@@ -73,3 +73,80 @@ we need to do it manually using spread operator
             value: Math.floor(Math.random() * 10) +1
         }])
     }
+in class state is alwys an ibject
+useStatedoent needs to be an object
+newstate value depends on the prev state value the pass it as a fucntion to the setter funcion
+wheen dealing with array or object always spread the  operator
+
+---------------------------------------------------------------------------------------------------------------------------
+
+049 - useEffect hook-
+for implementing sideeffects in our code while using class we use lifrcycle methods
+Side effects are things that affect the “outside world” or happen in addition to rendering.
+Fetching data from an API
+Subscribing/unsubscribing to events (like WebSocket, DOM events)
+Updating the document title
+Setting timers (setInterval, setTimeout)
+ue effcr hooks let you perform side effects in functional component
+it is a replacement for componrntDidmount, componrntdidUpdate, compoenentwillUnmount
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+050 - useEffect after render:
+implement useState counter normally
+then using useeffect we haver to implemement changing in titile
+import { useEffect too
+  useEffect is a function , simply call it. 
+this function accepts a fucntion which is executed after every render of the component
+after every render useeffect will run ie we are doing in class also
+
+-----------------------------------------------------------------------------------------------------
+
+051 - consitionally run effect:
+doing useeffect after every re render might cause some performance problem
+in class implememtation add an input field updating that also cause the rerender uselessly. so we will condionally render change in title only based  on count calue is changed or not
+  componentDidUpdate(props, prev) {
+        // console.log(this.state.value)
+        if (prev.count !== this.state.count) {
+            console.log('updating')
+            document.title = `${this.state.count}`
+
+        }
+
+    }
+
+  in functional compoennet we have to implement the same
+consitionally render useEffect when count value changes ie if current state differ from prevc state
+for that to useEffect we pass a second argument ie an array, inside that array we specify props or state that we need to watch on
+
+--------------------------------------------------------------------------------------------
+
+052 - run useEffect only once:(componentDidMount)
+ie we are mimicing componentDIdMount using useEffect refer classmouse.js
+then make hookmouse.js normally
+using use effect we are adding evemt listener to the window 
+it is rerendred eveytime component render
+we can change this by adding a conditional render, but here we want to run eventListener only once at the initial render only
+this can be done by passing an empty array as second argument to the i=useeffect
+it is saying that useEffect here dosnt depend on state or props so there is no need to re render - this is how we mimic component did mount
+    useEffect(()=>{
+        console.log('updating')
+        window.addEventListener('mousemove',(e)=>{
+        setX(e.clientX)
+        setY(e.clientY)
+    })},[])
+
+
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

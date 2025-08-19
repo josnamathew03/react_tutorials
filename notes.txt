@@ -559,7 +559,7 @@ shalow comparison :
 027- memo:
 memo  is used in functiomal Component to acheive the pure component behaviour
 export default React.memo(MemoCom)
-this sis called a higher order components
+this is called a higher order components
 React.memo accepts a component adds some things to that component and returns a new enhanced component in here it is avoiding re-rendering
 
 ----------------------------------------------------------------------------------------------
@@ -635,8 +635,8 @@ in every other portal behave like every other child
 ------------------------------------------------------------------------------
 
 // 032- errror boundary:
-// catch the error anywhere in the component tree and display fall bvack UI
-// a class compoennt that implememtd either one or both of the lifecycle methods getderivedstatefromerror or componentdiidcatch bercomes erroro boundary
+// catch the error anywhere in the component tree and display fall back UI
+// a class compoennt that implememtd either one or both of the lifecycle methods getderivedstatefromerror or componentdiidcatch becomes error boundary
 // static method getDerivedStatesFromError method is useed to render a fallback ui after an error is throen and the componnetDidCatch is used to log the eroor info
 // when error is happend entire ui get crash we want error to fallback to a ui and the remaining comonents shoulld be unaffected
 // create a class component for error boundary . create a state variable hasError and set it to false. in our static getDerivedstateFromErrror take error as  parametr , we return hasError as trrue. this is used to make the fallback Ui
