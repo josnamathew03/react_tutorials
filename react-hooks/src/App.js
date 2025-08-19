@@ -9,6 +9,7 @@ import ClassImple from './2componentUseEffect/ClassImple';
 import HooksUseEffect from './2componentUseEffect/HooksUseEffect';
 import ClassMouse from './2componentUseEffect/ClassMouse';
 import HooksMouse from './2componentUseEffect/HooksMouse';
+import Toggle from './2componentUseEffect/Toggle';
 
 function App() {
   return (
@@ -28,14 +29,14 @@ function App() {
     {/* <HooksUseEffect/> */}
 
     {/* <ClassMouse/> */}
-    <HooksMouse/>
+    {/* <HooksMouse/> */}
+    <Toggle/>
     </div>
   );
 }
 
 export default App;
 
-// 053 - useEffect with cleanUp :(componetWillUnmount)
 
 
 

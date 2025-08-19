@@ -18,7 +18,9 @@ class ClassMouse extends Component {
     componentDidMount(){
         window.addEventListener('mousemove',this.setPointer)
     }
-
+    componentWillUnmount(){
+        window.removeEventListener('mousemove',this.setPointer)
+    }
     render() {
         const {x, y} = this.state
         return (

@@ -139,6 +139,29 @@ it is saying that useEffect here dosnt depend on state or props so there is no n
 
 ------------------------------------------------------------------------
 
+053 - useEffect with cleanUp :(componetWillUnmount)
+for understanding componentWilUnmount we are using classMOuse and wrap it ina container for toggling
+event though compoennt has been removed event listener which belongs to compoennet is still listening
+\we have unmounted the component but when mouse is moveed it is updating state variable for x and y
+on unmounting we have to make sure you cancel all your subscriptions and listeners, ie clean up after your component
+using class we can do clean up using component will unmount
+   componentWillUnmount(){
+        window.removeEventListener('mousemove',this.setPointer)
+    }
+while using useEffect can return a function which will be executed when the component will unmount, so whatever you return is your clean up function\
+ useEffect(() => {
+        console.log('updating')
+        window.addEventListener('mousemove', logPosition )
+        return () => {
+            console.log('unmounting')
+            window.removeEventListener('mousemove',logPosition)
+        }
+    }, [])
+
+when we want to implement some component clean up code include it in a function and return that function inside useEffect functiion
+
+--------------------------------------------------------------------
+
 
 
 
