@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useReducer, useState } from 'react';
+import React, { Component, useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import './App.css';
 import ClassCounter from './1component/ClassCounter';
 import HookCounter from './1component/HookCounter';
@@ -26,6 +26,20 @@ import ComponentB from './5componentRed+Con/ComponentB';
 import ComponentC from './5componentRed+Con/ComponentC';
 import FetchUseEffect from './6componentFetch/FetchUseEffect';
 import FetchUseReducer from './6componentFetch/FetchUseReducer';
+
+import Parent from './7componentUseCallback/Parent';
+
+import CounterMemo from './8componentUseMemo/CounterMemo';
+import FocusInput from './9compoenntUseRef/FocusInput';
+
+import ClassTimer from './9compoenntUseRef/ClassTimer';
+import HookTimer from './9compoenntUseRef/HookTimer';
+import DocTitle1 from './10componentCustomHook/DocTitle1';
+import DocTitle2 from './10componentCustomHook/DocTitle2';
+import CounterCustom from './10componentCustomHook/CounterCustom';
+import CounterCustom2 from './10componentCustomHook/CounterCustom2';
+import useCounter from './Hooks/useCounter';
+import InputCustom from './10componentCustomHook/InputCustom';
 
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext()
@@ -96,8 +110,26 @@ function App() {
 
       {/* ////////////////////////////////////////////////////////// */}
 
-        {/* <FetchUseEffect/> */}
-        <FetchUseReducer/>
+      {/* <FetchUseEffect/> */}
+      {/* <FetchUseReducer/> */}
+
+      {/* ////////////////////////////////////////////////////////////// */}
+      {/* <Parent/> */}
+      {/* <CounterMemo/> */}
+
+      {/* //////////////////////////////////////////////////////// */}
+
+      {/* <FocusInput/> */}
+      {/* <ClassTimer/>
+        <HookTimer/> */}
+
+      {/* ///////////////////////////////////////////////////////// */}
+
+      {/* <DocTitle1/>
+      <DocTitle2/> */}
+      {/* <CounterCustom/>
+      <CounterCustom2/> */}
+      <InputCustom/>
     </div>
   );
 }
@@ -105,6 +137,8 @@ function App() {
 export default App;
 
 
+// 077 - useInput custom hook:
+// a form where user can submit firsr name and last name
 
 
 

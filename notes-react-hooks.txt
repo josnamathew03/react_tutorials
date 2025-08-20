@@ -366,41 +366,130 @@ call usereducer inside the function
 change the jsx
 
 -------------------------------------------------------------------------------------------
+068- usestste vs usereducer:
+useState-
+  type of state is number, string, boolean
+  number of state transition is one or two
+  not related state transition
+  no buissiness logic
+  local state
+
+
+useReducer-
+  type of stte is an  object
+  number of state transition is too many
+  related state transition, tied to a specific function
+  complex buissiness logic
+  global state( use context can also be used but using this we can pass data using one dispatch method which can update several state variables)
+
+-------------------------------------------------------------------------------------------
+
+
+069 - useCallback hook:
+in 7componnet we have made a parent and five childrens
+we have added console log for each children 
+when we have changed any one of the compoennt every componnet is re rendered
+we will have performance issues when we have lots of components and all of them is re rendered
+we want to re render only the components that have changeed, for that we can use React.memo which is a higher orde compoennt which will re render only if the state or props have chanfes
+for all the components while exporting wrap them with react.memo
+still there is performance issue that when i click increment age button increment salry is also re rendered this is because a new function for increment salary is created each time the parent re renders
+when dealing with function we have to consider  reference equality, even though functions have exact same behaviour it dosnt mean that they are equal to each other, so the function before the render is differrent from the function after the re render,
+since the function is  a prop React.memo see it as a change and wont prevent re render. if a prop is a function, React sees a new function reference every render.
+this is same case when you increment salary as well
+to fix this we use useCallback
+
+useCallback hook:
+useCallback says-
+“Hey React, don’t create a new function every render. Reuse the old one unless something in my dependencies changes.”
+
+what-
+useCallback is a hook that will return a memoized versiion of the callback function that only changes if one of the dependencies has changed
+useCallback hook will cache the increment salary function and retuen that if salary is not incremented
+if the salry is incremrnted that is gthe dependency has changed onlyh then a new function will be returned 
+
+why-
+it is useful when passing callbacks to optimized child components that rely on reference equality to prevent unneceaasry renders
+ie usefull in passing callbacks functions like incremnt age and salary
+
+how-
+import { useCallback } from 'react';
+call useCallback which takes two parameters first is callback function and second is array of dependencies to that callback
+    const incrementSalary= useCallback(
+        ()=>{
+       setSalary(salary + 5000)
+    },[salary]
+    )
+
+-------------------------------------------------------------------------------------------
+
+070- useMemo hook:
+another hook related to performance optimization
+crreate a counter component which has two counters we have button to increment counter and each time it is incremented it is checked for even or odd and that also is displayede
+while checking for iseven function we are delaying it for a few seconds by giving a while loop and the ui got delayed for few seconds
+we have added this iseven to only count1 , but even if we click on count 2 button there is still the delay, that is because every time the state updates the component re rendres , and when the component re renders iseven function is called again
+we need to tell react not to recalculatre values unecessarily, in here we need to tell react not to recalculate iseven when count2 is changed
+usememo is a hook tjat will only recompute the cached value whwen one of the dependencies havce changed
+
+import { useMemo } from 'react';
+call use memo takes two parameters one is the function and other is dependency array return value os then stored
+difference from useCallback is that it caches the provided function itself whereas useMemo ivokes the provided function and caches its result
+
+-------------------------------------------------------------------------------------------
+
+071,072 - useref:
+implement timer using a class classTimer.js
+doing that in functional compoennt
+on button click if we try to clearintervel intervel is only scoped to the useeffect hoook, we can clear the untervel within useeffect hook not from outside
+When you pass a ref to an element (like <input ref={myRef} />), React stores the actual DOM node in it.
+useref can hold a reference to a DOM node using ref attribute it can also be used to store any mutable value, the value will persisit through the rerenders while also not causing any additional renders when its value change
+. The value will persist through re-renders
+Normal variables inside a component reset every render.
+But useRef remembers its value across renders.
+
+useImperativeHandle → “Child controls what parent sees via ref”
+
+useLayoutEffect → “Effect that runs before paint, for layout measurements”
+
+useDebugValue → “Adds labels for custom hooks in React DevTools”
+
+-------------------------------------------------------------------------------------------
+
+
+073 - custom hooks:
+it si basically a js function that starts with use.
+it can call othher hooks if required
+
+why-
+share logic - alternaqtive to hocs and render props
 
 
 -------------------------------------------------------------------------------------------
 
 
 
--------------------------------------------------------------------------------------------
+074 - useDocument custom hook:
+creating a custom hook that updates the document title
+-without custom hook
+keep track of the count value 
+after every render update the count calue in document title
+we create to compoennts which updates doc title on button click
+we dont want to repeat codes
+
+-with custom hook
+create a new folder hooks, new file useDocTitle
+function word for custom hook shouls start with use
+copy useEffect hook to custom hook, import useeffect no need to import rect beccause therr is no jsx
+
+import useDocTitle where we want to use it and pass the count variacle
+we dont need to return anything since we are rendering in there itself
 
 
 -------------------------------------------------------------------------------------------
 
-
-
--------------------------------------------------------------------------------------------
-
-
-
--------------------------------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------------------------------
-
-
+075 - useCounter custom hook:
+in here we need to return variacles and use it, use array destrtuctuting
+refer CustomCounter.js and useCounter.js
+we can change the initial count or increment value by passing the required as parameeter
 
 -------------------------------------------------------------------------------------------
 
@@ -427,7 +516,7 @@ change the jsx
 
 
 
-
+---------------------------------------------------------------------------------------
 
 
 
