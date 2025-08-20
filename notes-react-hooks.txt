@@ -334,6 +334,12 @@ when we need two counters with exact state transition  we have alternative use m
 
 -------------------------------------------------------------------------------------------
 
+065 - useReducer vs useContext    
+we have use useReducer for local state management so far ie inside the component
+sometimes we want to share state betweenn components ie global state mansgement
+we can do that by combining useReducer+useContext
+suppose there is 3 components which uses Counter, instead of implementing three different counters we  need to implement one counter that is accessivle to all
+we are implementing the counder using reducer in App.js and using it in other function using useContext
 
 -------------------------------------------------------------------------------------------
 
