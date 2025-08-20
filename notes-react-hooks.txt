@@ -54,7 +54,7 @@ every time when we want t update the state value to a new state value use this m
 
 047- useState with object-
 with useState use object as a state variable
-state varialbe can be anything a string a boolean anumber an array or an object
+state varialbe can be anything a string a boolean a number an array or an object
 we are setting the first and last name as empty, so if we type firstname the last name is removed fromm the objet and vice vversa
 useState doent automatically merge or update the object. this is the key differrence to setstate
 setstate will merge the state whereas usestate donot merge the state you have too do it manually
@@ -342,9 +342,89 @@ suppose there is 3 components which uses Counter, instead of implementing three 
 we are implementing the counder using reducer in App.js and using it in other function using useContext
 
 -------------------------------------------------------------------------------------------
+066 - fetching data with useReducer:
+we are implemrnting fetching using useReducer and also useEffect.
+as sson as the cpmponent mount we fetch the data from api , while the data is fetching we show a loading indicator, when data is fetchde sucessfully we hide loading indicator and display the data, if hthere is an error fetrchiung data we hide loading indiactpr and shows error
+
+import usestate and axios
+define variables required- loading flag, error msg, data fetched from api
+define useEffect with empty dependency
+within useEffect arrow function make get request 
+inside .then setloading flag to false, set post data, set error msg as mepty
+inside catch set loading as false, set post to empty data, set error mdg
+inside jsx i loading return loading else show the title
+if error hancle that too
+
+-------------------------------------------------------------------------------------------
+
+067- fetching data with usereducer
+using use reducer:
+using use effect fetch data from api then in dispatch give an object with type and response data same in catch bloxk too
+set initial state as a set of objects with flag, post data, error Message 
+reducer function take state and actions based on actions.type set data
+call usereducer inside the function
+change the jsx
+
+-------------------------------------------------------------------------------------------
 
 
 -------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+
+-------------------------------------------------------------------------------------------
+
 
 
 

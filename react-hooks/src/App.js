@@ -24,6 +24,9 @@ import CounterMulti from './4ComponentReducer.js/CounterMulti';
 import ComponentA from './5componentRed+Con/ComponentA';
 import ComponentB from './5componentRed+Con/ComponentB';
 import ComponentC from './5componentRed+Con/ComponentC';
+import FetchUseEffect from './6componentFetch/FetchUseEffect';
+import FetchUseReducer from './6componentFetch/FetchUseReducer';
+
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext()
 
@@ -84,18 +87,22 @@ function App() {
       {/* <CounterComplex/> */}
       {/* <CounterMulti/> */}
 
-      {/* //////////////////////////////////////////////////////////////////// */}
-      <CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
+      {/* ///////////////////////////////////////////////////////// */}
+      {/* <CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
         <ComponentA />
         <ComponentB />
         <ComponentC />
-      </CountContext.Provider>
+      </CountContext.Provider> */}
+
+      {/* ////////////////////////////////////////////////////////// */}
+
+        {/* <FetchUseEffect/> */}
+        <FetchUseReducer/>
     </div>
   );
 }
 
 export default App;
-
 
 
 
