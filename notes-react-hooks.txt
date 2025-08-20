@@ -494,30 +494,12 @@ we can change the initial count or increment value by passing the required as pa
 -------------------------------------------------------------------------------------------
 
 
-
-
--------------------------------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------------------------------
-
-
-
-
-
--------------------------------------------------------------------------------------------
-
-
-
----------------------------------------------------------------------------------------
-
+076 - useInput custom hook:
+a form where user can submit firsr name and last name
+inside useInput we accepting an initalvalue and using useState a value is set. 
+there is reset function which resets the value to initial value 
+there is a bind object which assigns the valueo and an onChange function
+return value, bind and reset and use in input custom file
 
 
 

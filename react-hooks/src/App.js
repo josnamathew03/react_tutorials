@@ -85,29 +85,29 @@ function App() {
       {/* <HooksMouse/> */}
       {/* <Toggle/> */}
       {/* <IntervelClass/> */}
-      {/* <IntervelFun/> */}
-      {/* <DataFetching/> */}
+      {/* <IntervelFun/> */}      
+      {/* <DataFetching/> */} 
       {/* /////////////////////////////////////////////////////////////// */}
 
       {/* <UserContext.Provider value={'jos'}>
         <ChannelContext.Provider value={'code'}>
-          <ComponentA />
+          <ComponentA /> 
         </ChannelContext.Provider>
       </UserContext.Provider> */}
 
       {/* //////////////////////////////////////////////////////////// */}
 
       {/* <CounterReduce/> */}
-      {/* <CounterComplex/> */}
+      {/* <CounterComplex/> */}   
       {/* <CounterMulti/> */}
-
+   
       {/* ///////////////////////////////////////////////////////// */}
-      {/* <CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
+      <CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
         <ComponentA />
         <ComponentB />
         <ComponentC />
-      </CountContext.Provider> */}
-
+      </CountContext.Provider>
+ 
       {/* ////////////////////////////////////////////////////////// */}
 
       {/* <FetchUseEffect/> */}
@@ -128,18 +128,16 @@ function App() {
       {/* <DocTitle1/>
       <DocTitle2/> */}
       {/* <CounterCustom/>
-      <CounterCustom2/> */}
+      <CounterCustom2/> */}  
       <InputCustom/>
     </div>
   );
 }
+ 
+export default App;  
 
-export default App;
-
-
-// 077 - useInput custom hook:
-// a form where user can submit firsr name and last name
-
+// 077 - debugging
+// https://www.youtube.com/watch?v=d10qxIXgLbg&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=77
 
 
 

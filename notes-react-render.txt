@@ -1,0 +1,83 @@
+078- react render intro:
+    why render
+    why re render
+    optimize rendering
+    incorrect optimizationcs
+
+------------------------------------------------
+
+079- rendering in react:
+when we run a react app the code written in component is converted to react elements which is rendered in to the DOM
+NB: initial render process
+two phases are render phase and commit phase
+render phase:
+    react starts at root of the compoenent  treer and goes downwards to the leaf components
+    while traversing react invokes creareelement method which converts the jsx to react elements and stores the render outputs
+    react elements are js objects that describes the structure of your ui
+    once the conversion to react elements is done for the entire compoennts all react elements are given to commit phase 
+
+commit phase:
+    react elements are applied to the DOM using react DOM package
+
+
+NB: re render phase
+
+render phase:
+    starts from root node and check for compoennts which is flagged as needing updates as compoennt, a component is flagged by calling a usestate render function  or usereduccer dispatch function
+    for each of the flagged compoennts invokes creareelement method which converts the jsx to react elements and stores the render outputs
+    perform reconcillation : once it is done for each of the flagged compoenents the components affected by the flag compoenents , react compares new set of react elements(new render) with the previous render
+    a list is created waith all the changes that needs to make to the dom and handed over to commit phase
+    in commit phase changes are applied to the dom
+
+    rendering is not as updating the node
+
+    during  rendering if the same changes is applied as the previous render then it is discarded and no change is applied to the dom
+
+commit phase:
+react elements are applied to the DOM using react DOM package
+
+commit phase is usually fast but rendering can be slow
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+
+------------------------------------------------
+
+
+
+------------------------------------------------
+
+
+
+------------------------------------------------
+
+
+
+-------------------------------------------------
+
+
+
+
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+------------------------------------------------------
+
+
+
+-------------------------------------------------------
+
+
+
+
