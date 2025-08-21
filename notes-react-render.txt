@@ -96,15 +96,6 @@ child component is just a prop not a nested component
 components can change state not props
 if component are passed as props child re render at first and then not
 
--------------------------------------------------
-
-084- same element referernce:
-technique to avoid unneccessary renders discussed in 84
- include the child compoennt as component definition while using it in App.js and use it as children
-child component is just a prop not a nested component
-components can change state not props
-if component are passed as props child re render at first and then not
-
 --------------------------------------------------
 
 085-  react memo:
@@ -158,7 +149,15 @@ give a Memoized version of function using useCallback which takes the function a
 
 ------------------------------------------------------
 
+091 - context:
 
+ways to rerender:
+  component calls useState settert function or useReducer dispatch function 
+  if parent compoennt re-renders
+  react context
+
+consider a scenerio where context is used  
+When the context value changes, all components that consume that context will re-render (even if they’re wrapped in React.memo).
 
 ------------------------------------------------------
 
