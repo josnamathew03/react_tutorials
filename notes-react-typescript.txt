@@ -1,0 +1,155 @@
+typescript basics:
+
+
+    🟦 What TypeScript is
+    TypeScript is a superset of JavaScript.
+    That means every valid JavaScript code is also valid TypeScript.
+    TypeScript just adds extra features on top of JavaScript, mainly static typing (checking variable, function, and object types before running the code).
+ 
+relation to js:                                     
+-optional static typing and type inference
+-IDE support
+
+TypeScript doesn’t run directly — it must be compiled (transpiled) into JavaScript first using tsc.
+After that, you run the compiled .js file with Node.
+-tsc main.ts
+-node main.js
+
+the file is treated as a script rather than a module
+a module has its own scope where script share global scope
+to remove this add an export statement at the top, by adding import or export typescript treat it as a module 
+automatically recompile the typescript file whenever there is a change
+    tsc main --watch
+        This puts the compiler in watch mode.
+        It means the compiler will keep running and watch for changes in your main.ts file.
+        Every time you save the file, it will automatically recompile and update main.js.
+
+--------------------------------------------------------------
+Variable declaration:
+
+let and const are mainly used
+
+--------------------------------------------------------------
+variable types:
+boolean, number, string 
+
+let isBeginer : boolean = true
+let total: number = 3
+let name: string = 'jos'
+
+uses of having types:
+    static type checking-
+        Static type checking is the process of verifying the types of variables, functions, and expressions at compile time (before the code runs), instead of waiting until runtime.
+        In TypeScript:
+        If you declare a variable or function with a type, TypeScript will check that all uses of it are correct.
+
+Errors are caught early, when you compile the .ts file into .js.
+    intellicence-
+        Autocomplete: Suggests available methods and properties.
+        Tooltips: Shows type info when you hover over a variable.
+        Error highlights: Marks mistakes as you type.
+
+-null and undefines are classified as subtypes of other types, you can assign values of null or undefined to either boolean, number or a string typed variable
+    let n:null = null
+    let u:undefined = undefined //
+    let isNew: boolean | null = null;
+    let myName: string | undefined = undefined;
+
+-array that contain value of same type
+    let list1: number[] =[1,2]
+    let list2: Array<number> =[1,2]
+
+-array that contain fixed value of different type(tuple type)
+    let person1: [string,number] = ['chris', 22] //order and number of values should match order and number of types
+
+-enum
+    In TypeScript, an enum (short for enumeration) is a way to give a set of named constants a friendly label.
+    It makes your code more readable and maintainable.
+    enum colors{
+        red, green, blue
+    }
+    let c:colors = colors.green
+    console.log(c) //outputs 1
+    enum values begin with value 0. so rend has value 0, green 1, blue 2
+
+    enum colors{
+        red=5, green, blue
+    }
+    let c:colors = colors.green
+    console.log(c) //outputs 6
+
+    enum colors{
+        red=5, green=3, blue
+    }
+    let c:colors = colors.green
+    console.log(c) //outputs 3
+    it can be used when we have a set of color codes insteead of using code we can use enums where we assign names to these values and use these names
+
+-anytype 
+    any is a special type in TypeScript that disables type checking.
+    A variable of type any can hold any value (number, string, boolean, object, etc.), and you can call methods or access properties on it without compile-time errors.
+    if we are unsure about the type, ie when we are taking values from a thirs paety library or values from user input which is dynamic
+    let randomValue: any = 10;
+    randomValue = true
+    randomValue = 'anyyyyy'
+    errors:
+        let myVariable: any = 10;
+        console.log(myVariable.name);
+        myVariable();
+        myVariable.toUpperCase()
+        Because of this type any my variable doesn’t throw an error inthese all cases
+
+-unknown
+    it can be a variable of any type but cannot acess the properties of an unknown type 
+    A variable of type unknown can hold any value, but you cannot directly use it (access properties, call methods, etc.) without first narrowing its type.
+    we have to use type assertion:
+        it is similar to type casting in other languages
+        let myVariable: unknown = 'srtttt';
+        (myVariable as string).toUpperCase() // my variable should be treated as a string and the properties can be then applied
+
+    we can have user defined type guard
+        let myVariable: unknown = 'srtttt';
+        function hasName(obj: any): obj is { name: string } {
+            return !!obj &&
+                typeof obj === "object" && "name" in obj
+        }
+        if (hasName(myVariable)) {
+            console.log(myVariable.name);
+        }
+
+-type inference:
+    it takes place while initializing . Type inference is the process where TypeScript automatically determines the type of a variable, expression, or return value without you explicitly writing it.
+
+    eg:let x = 10;   // inferred as number
+        let msg = "hello";  
+        // inferred as string
+        function add(a: number, b: number) {
+        return a + b;
+        }
+        // return type is inferred as number
+    why it cant be used always:
+        -When the variable is declared without initialization,If you don’t initialize, inference falls back to any, losing type safety.
+            let data;   // inferred as 'any' (unsafe)
+            data = 10;
+            data = "string";  // no error because it's 'any'
+
+union of types
+
+--------------------------------------------------------------
+
+
+
+--------------------------------------------------------------
+
+
+
+--------------------------------------------------------------
+
+
+
+--------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------
