@@ -98,15 +98,69 @@ if component are passed as props child re render at first and then not
 
 -------------------------------------------------
 
-
-
+084- same element referernce:
+technique to avoid unneccessary renders discussed in 84
+ include the child compoennt as component definition while using it in App.js and use it as children
+child component is just a prop not a nested component
+components can change state not props
+if component are passed as props child re render at first and then not
 
 --------------------------------------------------
 
+085-  react memo:
+let react knoe it dhould re render child compoennt only if its states changed- done using rect.memo
+it performs a shallow comparison between prevous and new props and re render the child only if the props have changed
+
+------------------------------------------------------
+
+086- questions on optimization
+  -when to use Element reference and  when to use React.memo
+  same element reference :
+  when child component re render because of change in parent component
+  do not work it parent re renders because of changes in its props
+  React.memo
+  when your child compoenent is being asked to re render due to changes in the parents statte which do not affect the child compoennt props in anyway
+
+-why not wrap every compoennt with React.memo or why cant we memoize intertnally
+  shallow comparison arent fre. they are Object(prop count). they buy something if its bails out
+  all comparison which end up in re rendering is wasted
+
+when you optimize the rendering of one compoennt, react will also skip renddering that compoennts entire subtree because its effectively stopppin gthe default render children recursively behavior of react
+
+-------------------------------------------------------
+
+087 - incorrect memo with children:
+props.children is always a new reference which cause the child compoennt always re render
+the Memoized child compoennt itself has child component ie string in her which always cause re render. so no need to wrap and check for rendering
+
+------------------------------------------------------
+
+088- incorrect memo with impure component
+IncorrectChild2.js 
+while re rendering ui we want to render time too but isnt happening
+
+------------------------------------------------------
+
+089-Incorrect memo with props reference:
+we are passing an object as props, because of that everytime the parent re render a new person o=object is created so the child also get re rendered even if they are memoized
+functions also has similar effects
+
+------------------------------------------------------
+
+090-useMemo and useCallback:
+we can overcome problem in 089 with calback.
+fixing new object references while re rendering:
+crerate a Memoized version of person obejct 
+useMemo takes first argumeb=nt the funtion to be memoized , second argument is the dependency list
+
+fixing new funtion references while re rendering:
+give a Memoized version of function using useCallback which takes the function as first argument and second argument is dependency list
+
+------------------------------------------------------
 
 
 
-
+------------------------------------------------------
 
 
 
@@ -115,8 +169,21 @@ if component are passed as props child re render at first and then not
 
 
 
--------------------------------------------------------
+
+------------------------------------------------------
 
 
 
+
+------------------------------------------------------
+
+
+
+
+------------------------------------------------------
+
+
+
+
+------------------------------------------------------
 
