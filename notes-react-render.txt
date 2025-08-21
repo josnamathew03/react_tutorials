@@ -158,15 +158,18 @@ ways to rerender:
 
 consider a scenerio where context is used  
 When the context value changes, all components that consume that context will re-render (even if they’re wrapped in React.memo).
+if components are not wrapped in  memo all the children components  get re rendered since it is the default behaviour
 
 ------------------------------------------------------
 
-
-
+092- context and render:
+wrap the compoennt used by context provider with react memo states update in the parent component will only re render componentr whivh use context value not every children compoennt
 
 ------------------------------------------------------
 
-
+093 - context and same Element reference:
+insteaf of using memoized we can use same Element refernce that is done by passing child component as children props
+while using context make sure to wrap immediate child in memo or use same element reference
 
 
 ------------------------------------------------------

@@ -13,6 +13,8 @@ import IncorrectParent from './Components/IncorrectMemo/IncorrectParent';
 import { Memoized } from './Components/Optimization/ChildMemo';
 import { IncorrectChild2 } from './Components/IncorrectMemo/IncorrectChild2';
 import IncorrectParentProps from './Components/IncorrectMemo/IncorrectParentProps';
+import ContextParent from './Components/Context/ContextParent';
+import ContextChildA from './Components/Context/ContextChild';
 
 function App() {
   return (
@@ -25,13 +27,17 @@ function App() {
       {/* <ParentOpt child={<ChildOpt/>}></ParentOpt> */}
       {/* <ParentMemo/> */}
       {/* <IncorrectParent></IncorrectParent> */}
-      <IncorrectParentProps/>
+      {/* <IncorrectParentProps/> */}
+      <ContextParent>
+        <ContextChildA/>
+      </ContextParent>
     </div>
   );
 }
 
 export default App;
      
+
 
 
 
