@@ -102,7 +102,7 @@ after every render useeffect will run ie we are doing in class also
 
 -----------------------------------------------------------------------------------------------------
 
-051 - consitionally run effect:
+051 - conditionally run effect:
 doing useeffect after every re render might cause some performance problem
 in class implememtation add an input field updating that also cause the rerender uselessly. so we will condionally render change in title only based  on count calue is changed or not
   componentDidUpdate(props, prev) {
@@ -342,6 +342,7 @@ suppose there is 3 components which uses Counter, instead of implementing three 
 we are implementing the counder using reducer in App.js and using it in other function using useContext
 
 -------------------------------------------------------------------------------------------
+
 066 - fetching data with useReducer:
 we are implemrnting fetching using useReducer and also useEffect.
 as sson as the cpmponent mount we fetch the data from api , while the data is fetching we show a loading indicator, when data is fetchde sucessfully we hide loading indicator and display the data, if hthere is an error fetrchiung data we hide loading indiactpr and shows error

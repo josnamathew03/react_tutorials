@@ -12,7 +12,7 @@ NB: initial render process
 two phases are render phase and commit phase
 render phase:
     react starts at root of the compoenent  treer and goes downwards to the leaf components
-    while traversing react invokes creareelement method which converts the jsx to react elements and stores the render outputs
+    while traversing react invokes createelement method which converts the jsx to react elements and stores the render outputs
     react elements are js objects that describes the structure of your ui
     once the conversion to react elements is done for the entire compoennts all react elements are given to commit phase 
 
@@ -24,10 +24,10 @@ NB: re render phase
 
 render phase:
     starts from root node and check for compoennts which is flagged as needing updates as compoennt, a component is flagged by calling a usestate render function  or usereduccer dispatch function
-    for each of the flagged compoennts invokes creareelement method which converts the jsx to react elements and stores the render outputs
+    for each of the flagged compoennts invokes createelement method which converts the jsx to react elements and stores the render outputs
     perform reconcillation : once it is done for each of the flagged compoenents the components affected by the flag compoenents , react compares new set of react elements(new render) with the previous render
     a list is created waith all the changes that needs to make to the dom and handed over to commit phase
-    in commit phase changes are applied to the dom
+    in commit phase changes are applied to the dom 
 
     rendering is not as updating the node
 
@@ -40,22 +40,61 @@ commit phase is usually fast but rendering can be slow
 
 ------------------------------------------------
 
+080 - useState:
+because of strict mode encouraged by create-react-app in indexe.js we can React.StrictMode . because of this while we  do console.log it is coming twice. ie it intentionaly double ivoke app component only in development mode
+to flag the compoent for rerender is calling the setter function from useState
+ie what we have done by onclick and setting the count
+after the initial render iif you call the setter function and set the state to same value system wont re render
+if same value is given after re-render reract will render that specific component one more time and then bails out form any subsequent renders
+use state must pass or return a new referencfe as the state value, it has to be a new string boolean or number if the state is primitive type else  react will simply bail out of the component
 
 ------------------------------------------------
 
+❌❌ 081- useReducer render:
+starting with component tree we saw reducer hook dispatch func is called and it is flagged 
+during render phase react go through the components and identify the flagged components and sees reducer is the only function that needs an update
+usees createElement method to cinvert the jsx to react Element, 
+produce the diff created from the previous render to new render
+hand it over to commit phase where changes are applied to the DOM
 
+if youre updating the value to the same value after initial render component wont re render
+if youre updaring the calue to the same value after rendering it render one  more time and then bails out of the subsequent renders
+ 
+------------------------------------------------
+
+082 - state immutability:
+rendering behaviour when working with objects and arays
+when we use objject as a state the reference must cahnge for the component to queue a re render after comparing the old and the new state
+to solve this we have create a new object spread the person object and then update this new objet and passw this new object to the setter function
+
+the case is same while dealing with array too
+
+-mutating an objecty or array as state will not cause re render when used wit the useState or useReducer hook
+-to render make a copy and modify as necessary and trhen pass the new state to the setter  function
+-directly mutating may cause bugs 
 
 ------------------------------------------------
 
+083- parent and child re render:
+as default rendering behaviour of react as parent compoennt render it recursively re render all its child compoennts
+re render
+1: new state differ from old state, setter function cause parent compoenent to re render which in turn cause the child compoennt to re render, but DOM represented by child component is never updated
+2: new state same as old
+ 2a:after initial render- the parent component bails out from re rendeing so child wont re render
+ 2b:after re render- the parent com parent re rejder once again and then in subsequent re renders it bails out of the re render, child is unafedted by the re renders
 
+ same goes for useReducer too
+
+child compoenent went through the render phase but not the commit phase - unnecessary render - it affect performance
 
 ------------------------------------------------
 
-
-
-------------------------------------------------
-
-
+084- same element referernce:
+technique to avoid unneccessary renders discussed in 84
+ include the child compoennt as component definition while using it in App.js and use it as children
+child component is just a prop not a nested component
+components can change state not props
+if component are passed as props child re render at first and then not
 
 -------------------------------------------------
 
