@@ -133,23 +133,121 @@ Errors are caught early, when you compile the .ts file into .js.
             data = 10;
             data = "string";  // no error because it's 'any'
 
-union of types
+union of types:
+    let multitype : number | boolean // type is defined using piping character which combines twoo types 
+    multitype = 20;
+    multitype = true
 
---------------------------------------------------------------
-
-
-
---------------------------------------------------------------
-
-
-
---------------------------------------------------------------
-
+    usecases are when a value is not under your controll
+    union type restricts to the specified type where as any type has no restrictions
+    union will support intellicence
 
 
 --------------------------------------------------------------
+functions:
+    
+    function add(num1: number , num2: number):number{
+        return  num1+num2
+    }
+    console.log(add(2,3))
+    console.log(add(2,'3')) // wont work
+    here the return type is specified at the top . if we do not specify that then it will assume the return type to be number since we are adding two  numbers
+
+    functions has to called by specifying parameters, if you dont specify parameters, then it will throw an error
+    in js it is possible anf the parameters receives a undefined value if not specified
+    this can be acheived by adding a ? to the end to know that it is optional
+        function add(num1: number , num2?: number):number{
+            if(num2){
+            return  num1+num2
+            }
+            else{
+                return num1
+            }
+        }
+        console.log(add(2,3))
+        console.log(add(2))
+        // it will work with any number of optional parameters like this but optional parameters must be after the reqired parameanter
+
+        //optional parameters can be also set uisng a default value instead of having undefined
+            function add(num1: number , num2: number = 10):number{
+                if(num2){ 
+                return  num1+num2
+                }
+                else{
+                    return num1
+                }
+            }
 
 
+--------------------------------------------------------------
+
+interface:
+    we can specify object as a type
+    we can create interface for person object and use that interface as a type for tghe function parameter   
+    same interface can be useed as a type in different function
+    property of an interface is optional, add a? and then it becomes an optional property
+
+        interface person {
+            fname: string,
+            lname?: string
+        }
+
+        function fullName(person:person){
+            console.log(`${person.fname} ${person.lname}`)
+        }
+
+        let p ={
+            fname: 'Bruce',
+            lname: 'wayne'
+        }
+
+        fullName(p)
+
+--------------------------------------------------------------
+
+class:
+    class Employee{
+        empName: string
+        constructor(name: string){
+            this.empName = name
+        }
+
+        greet(){
+            console.log(`Good morning ${this.empName}`)
+        }
+    }
+
+    const emp1  = new Employee('zoro')
+    emp1.greet()
+
+class based inheritance is possible :
+manager is also an Employee with some privilages
+
+    class Manager extends Employee{
+        constructor(mname: string){
+            super(mname)
+
+        }
+        managesWork(){
+            console.log(`${this.empName} manages work`)
+        }
+    }
+    let m1 = new Manager('luffy')
+    m1.greet()
+    m1.managesWork()
+
+--------------------------------------------------------------
+
+acess modifiers:
+keywords that set accessibility to properties and methods
+public :
+    Definition: Properties and methods marked as public can be accessed anywhere – inside the class, outside the class, and in subclasses.
+    If you don’t specify anything, it’s public by default.
+private :
+    Definition: Properties and methods marked as private are accessible only within the class where they are defined.
+    Not accessible in subclasses or outside the class.
+protected :
+    Definition: Properties and methods marked as protected are accessible within the class and in derived (child) classes, but not outside.
 
 
 --------------------------------------------------------------

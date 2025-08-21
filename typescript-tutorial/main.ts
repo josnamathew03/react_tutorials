@@ -46,3 +46,64 @@ if (hasName(myVariable)) {
 }
 
 (myVariable as string).toUpperCase() // my variable should be treated as a string and the properties can be then applied
+
+let multitype : number | boolean 
+multitype = 20;
+multitype = true
+
+
+function add(num1: number , num2: number = 10):number{
+    if(num2){ 
+    return  num1+num2
+    }
+    else{
+        return num1
+    }
+}
+console.log(add(2,3))
+console.log(add(2))
+
+
+     interface person {
+            fname: string,
+            lname?: string
+        }
+        function fullName(person:person){
+            console.log(`${person.fname} ${person.lname}`)
+        }
+
+        let p ={
+            fname: 'Bruce'
+        }
+        fullName(p)
+
+    class Employee{
+        empName: string
+        constructor(name: string){
+            this.empName = name
+        }
+
+        greet(){
+            console.log(`Good morning ${this.empName}`)
+        }
+    }
+
+    const emp1  = new Employee('zoro')
+    emp1.greet()
+
+    class Manager extends Employee{
+        constructor(mname: string){
+            super(mname)
+
+        }
+        managesWork(){
+            console.log(`${this.empName} manages work`)
+        }
+    }
+    let m1 = new Manager('luffy')
+    m1.greet()                
+    m1.managesWork()
+
+
+
+
