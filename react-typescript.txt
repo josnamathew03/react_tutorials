@@ -39,19 +39,45 @@ type of react compoent is React.reactnode
 
 ------------------------------------------------------------------
 
+099 - event props:
+click event:
+  acccept click event as a prop and pass it to the html Element
+  click handler hal fof the time doesnt take any parameter and dosnt return anything
+    hsndleCLich : () => void
+if we ewant to pass  event to the clickhandler
+th etype of this event is React.MouseEvent, we can be more specific by saying it is a button click by adding <HTMlButtonElement>
+
+change event:
+two props that are input value  and onChnage handler
+
+------------------------------------------------------------------
+
+100- style props:
+Container.tsx
+we cannot specify the type as string or number so type for css is React.cssProperties
+pass only valid css properties and values otherwise throws aan error
+
+------------------------------------------------------------------
+
+101:  props types and tips:
+
+- destructure props while defining a componenet
+destructure while getting parametre props and we can remove props.value  type acessing
+
+-exporting types
+now we are defining types as props at the begining of the code 
+when working with too many components it is difficult and we want to move our types to another file then export and use it
+
+-reusing types
+extract types and use it in several placees
+eg: ArrayProp, ObjectProps, personr.types.ts
 
 
 ------------------------------------------------------------------
 
-
-
-------------------------------------------------------------------
-
-
-
-------------------------------------------------------------------
-
-
+102- useState hook:
+use state hook work fully functionally with normal js code, because of type inference ie when we assign  initail value it infer its type as that
+but what if we dont know the initial value or we are  dealing with more complex values
 
 ------------------------------------------------------------------
 

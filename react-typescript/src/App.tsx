@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { visitParameterList } from 'typescript';
@@ -13,6 +13,9 @@ import PirateKing from './component/propsAdvanced/PirateKing';
 import ButtonClick from './component/EventProps/ButtonClick';
 
 import InputChange from './component/EventProps/InputChange';
+import Container from './component/styleProps/Container';
+import { types } from 'util';
+import SimpleLogIn from './component/useState/SimpleLogIn';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -49,28 +52,20 @@ function App() {
 
 
       {/* <ButtonClick handleClick={(event,id)=>console.log(event,id)}></ButtonClick> */}
-      <InputChange handleChange={(e)=>console.log(e)} value=''></InputChange>
+      {/* <InputChange handleChange={(e)=>console.log(e)} value=''></InputChange> */}
 
+      
+      {/* <Container styleHead={ {border: '1px solid black', padding: '1rem'}}/> */}
 
+<SimpleLogIn/>
     </div>
   );
 }
 
 export default App;
 
-// 099 - event props:
-// click event:
-//   acccept click event as a prop and pass it to the html Element
-//   click handler hal fof the time doesnt take any parameter and dosnt return anything
-//     hsndleCLich : () => void
-// if we ewant to pass  event to the clickhandler
-// th etype of this event is React.MouseEvent, we can be more specific by saying it is a button click by adding <HTMlButtonElement>
-
-
-
-// change event:
-// two props that are input value  and onChnage handler
-
+103- useState future value :
+useState whose initial value is known at the future poibt of timw
 
 
 

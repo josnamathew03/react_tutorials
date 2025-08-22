@@ -1,10 +1,15 @@
 import React from 'react'
-type crewProp = {
+import { Name } from '../person.type'
+// type crewProp = {
+//     crew: string[],
+//     crewRole: {
+//         name: string,
+//         role: string
+//     }[]
+// }
+type crewProp ={
     crew: string[],
-    crewRole: {
-        name: string,
-        role: string
-    }[]
+    crewRole : Name[]
 }
 
 
@@ -16,7 +21,9 @@ const ArrayProp = (props: crewProp) => {
             }
             )} */}
             {props.crewRole.map(each=>{
-                return <li>{each.name}: {each.role}</li>
+                // return <li>{each.name}: {each.role}</li>
+                return <li>{each.fname}: {each.lname}</li>
+
             })}
 
         </ul>

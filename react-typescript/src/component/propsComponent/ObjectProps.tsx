@@ -1,16 +1,11 @@
 import React from 'react'
 
-type personProp = {
-    person:{
-        fname: string,
-        lname: string
-    }
-}
+import { personProp } from '../person.type'
 
-const ObjectProps = (person: personProp) => {
+const ObjectProps = ({person}: personProp) => {
   return (
     <div>
-      Ore wa {person.person.fname} {person.person.lname}
+      Ore wa {person.fname} {person.lname}
     </div>
   )
 }
