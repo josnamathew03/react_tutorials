@@ -2,10 +2,11 @@ import React from 'react'
 
     type name = {
         name:string,
-        count: number,
+        count?: number,
         isGuest: boolean
     }
 const Greet = (name:name) => {
+  const {count = 10} = props
 
   return (
     <div>

@@ -12,11 +12,28 @@ use types ehilr building applicaqtion, usr interfaces while building library
 
 
 ------------------------------------------------------------------
+097 - basic props
 
 
 
 ------------------------------------------------------------------
 
+098 - advanced props:
+we are creating a status compoennt there we are pasisng the status and based on that mesage is shown , but status are only three, if we encounttered anything else we need to throe an error
+type prop ={
+    // status: string
+    status : 'loading' | 'sucess' | 'error'
+}
+specify the type like this for that refer StatusCOmponent.jsx
+
+passing children props:
+refer HEading.tsx
+
+pasing react compoennt as a children :
+  <PirateKing>
+          <Heading>MONKEY D LUFFY king of the pirates</Heading>
+        </PirateKing>
+type of react compoent is React.reactnode
 
 
 

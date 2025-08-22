@@ -2,12 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { visitParameterList } from 'typescript';
-// import Greet from './component/propsComponent/greet';
+import Greet from './component/propsComponent/Greet';
 import ObjectProps from './component/propsComponent/ObjectProps';
 import ArrayProp from './component/propsComponent/ArrayProp';
+
+import StatusComponent from './component/propsAdvanced/StatusComponent';
+import Heading from './component/propsAdvanced/Heading';
+import PirateKing from './component/propsAdvanced/PirateKing';
 function App() {
   // let name:string = 'crocodile'
-  const person ={
+  const person ={ 
     fname : 'roronoa',
     lname : 'zoro'
   }
@@ -15,9 +19,9 @@ function App() {
 
   const crewRole = [
     {
-      name:'nami',
+      name:'nami', 
       role:'navigator'
-    },
+    }, 
     {
       name:'sanji',
       role: 'cook'
@@ -27,19 +31,22 @@ function App() {
   return (
     <div className="App">
       {/* <Greet name='croc'  count={10} isGuest={true}/> */}
-      <ObjectProps person={person}/>
-      <ArrayProp crew={crew} crewRole={crewRole}/>
+      {/* <ObjectProps person={person}/>
+      <ArrayProp crew={crew} crewRole={crewRole}/> */}
+
+        {/* <StatusComponent status='error'/> */}
+        {/* <Heading>ONE PIECE</Heading>
+        <PirateKing>
+          <Heading>MONKEY D LUFFY king of the pirates</Heading>
+        </PirateKing> */}
+      <Greet name='croc'  isGuest={true}/>
+
+
     </div>
   );
 }
 
 export default App;
-
-
-// 097 - basic props
-
-
-
 
 
 
