@@ -1,14 +1,14 @@
 import React from 'react'
 
-type ButtonProps = {
-    // handleClick : () => void
-    handleClick : (event:React.MouseEvent<HTMLButtonElement>,id:number) => void
+type buttonProps = {
+    // handleClick: () => void
+    handleClick: (event:React.MouseEvent<HTMLButtonElement>,id:number) => void
 }
 
-const ButtonClick = (props:ButtonProps) => {
+const ButtonClick = (props:buttonProps) => {
   return (
     <div>
-      <button onClick={(event)=>props.handleClick(event,1)}>Click</button>
+      <button onClick={(event)=>props.handleClick(event,2)}>Click</button>
     </div>
   )
 }

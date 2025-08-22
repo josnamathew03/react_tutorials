@@ -11,6 +11,8 @@ import Heading from './component/propsAdvanced/Heading';
 import PirateKing from './component/propsAdvanced/PirateKing';
 
 import ButtonClick from './component/EventProps/ButtonClick';
+
+import InputChange from './component/EventProps/InputChange';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -45,7 +47,9 @@ function App() {
         </PirateKing> */}
       {/* <Greet name='croc'  isGuest={true}/> */}
 
-      <ButtonClick handleClick={(e,id)=>console.log('clicked',e,id)}></ButtonClick>
+
+      {/* <ButtonClick handleClick={(event,id)=>console.log(event,id)}></ButtonClick> */}
+      <InputChange handleChange={(e)=>console.log(e)} value=''></InputChange>
 
 
     </div>
@@ -59,12 +63,13 @@ export default App;
 //   acccept click event as a prop and pass it to the html Element
 //   click handler hal fof the time doesnt take any parameter and dosnt return anything
 //     hsndleCLich : () => void
-  // if we ewant to pass  event to the clickhandler
-  // th etype of this event is React.MouseEvent, we can be more specific by saying it is a button click by adding <HTMlButtonElement>
+// if we ewant to pass  event to the clickhandler
+// th etype of this event is React.MouseEvent, we can be more specific by saying it is a button click by adding <HTMlButtonElement>
 
 
 
 // change event:
+// two props that are input value  and onChnage handler
 
 
 
