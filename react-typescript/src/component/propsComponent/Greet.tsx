@@ -6,7 +6,7 @@ import React from 'react'
         isGuest: boolean
     }
 const Greet = (name:name) => {
-  const {count = 10} = props
+  const {count = 10} = name
 
   return (
     <div>

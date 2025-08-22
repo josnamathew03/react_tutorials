@@ -9,24 +9,28 @@ import ArrayProp from './component/propsComponent/ArrayProp';
 import StatusComponent from './component/propsAdvanced/StatusComponent';
 import Heading from './component/propsAdvanced/Heading';
 import PirateKing from './component/propsAdvanced/PirateKing';
+
+import ButtonClick from './component/EventProps/ButtonClick';
 function App() {
   // let name:string = 'crocodile'
-  const person ={ 
-    fname : 'roronoa',
-    lname : 'zoro'
+  const person = {
+    fname: 'roronoa',
+    lname: 'zoro'
   }
-  const crew = ['luffy','nami','zoro','sanji']
+  const crew = ['luffy', 'nami', 'zoro', 'sanji']
 
   const crewRole = [
     {
-      name:'nami', 
-      role:'navigator'
-    }, 
+      name: 'nami',
+      role: 'navigator'
+    },
     {
-      name:'sanji',
+      name: 'sanji',
       role: 'cook'
     }
   ]
+
+
 
   return (
     <div className="App">
@@ -34,12 +38,14 @@ function App() {
       {/* <ObjectProps person={person}/>
       <ArrayProp crew={crew} crewRole={crewRole}/> */}
 
-        {/* <StatusComponent status='error'/> */}
-        {/* <Heading>ONE PIECE</Heading>
+      {/* <StatusComponent status='error'/> */}
+      {/* <Heading>ONE PIECE</Heading>
         <PirateKing>
           <Heading>MONKEY D LUFFY king of the pirates</Heading>
         </PirateKing> */}
-      <Greet name='croc'  isGuest={true}/>
+      {/* <Greet name='croc'  isGuest={true}/> */}
+
+      <ButtonClick handleClick={(e,id)=>console.log('clicked',e,id)}></ButtonClick>
 
 
     </div>
@@ -48,6 +54,17 @@ function App() {
 
 export default App;
 
+// 099 - event props:
+// click event:
+//   acccept click event as a prop and pass it to the html Element
+//   click handler hal fof the time doesnt take any parameter and dosnt return anything
+//     hsndleCLich : () => void
+  // if we ewant to pass  event to the clickhandler
+  // th etype of this event is React.MouseEvent, we can be more specific by saying it is a button click by adding <HTMlButtonElement>
+
+
+
+// change event:
 
 
 
