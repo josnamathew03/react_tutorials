@@ -80,12 +80,23 @@ use state hook work fully functionally with normal js code, because of type infe
 but what if we dont know the initial value or we are  dealing with more complex values
 
 ------------------------------------------------------------------
-
+103- useState future value :
+useState whose initial value is known at the future point of time
+consider storing logged in details of a user before logging in that value will be bull after logging in details will change to object 
+but as we initially passede details as null typescript wont allow us to pass anything other than null. so inthese cases we need to specify type instead of relying on type infernce
+include <> after usestate and specify tytpes
+eg: <ComplexLogin />
 
 
 ------------------------------------------------------------------
 
-
+104- usestate type assertion-
+we specify user as null but sometime it can cause  problems, so we have to check whether it is  null before acessing it
+    const [user,setUser] = useState({} as person)
+    💡 “Trust me, TypeScript, I know this empty object will eventually have the shape of Person.”
+    Useful when initializing state with an empty object, but you know the type later.
+    Helps TypeScript allow user.name without errors.
+    if person object will definitly have a value in future and this value is not gonna change then we can do this
 
 ------------------------------------------------------------------
 

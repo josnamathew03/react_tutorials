@@ -16,6 +16,7 @@ import InputChange from './component/EventProps/InputChange';
 import Container from './component/styleProps/Container';
 import { types } from 'util';
 import SimpleLogIn from './component/useState/SimpleLogIn';
+import ComplexLogin from './component/useState/ComplexLogin';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -54,18 +55,19 @@ function App() {
       {/* <ButtonClick handleClick={(event,id)=>console.log(event,id)}></ButtonClick> */}
       {/* <InputChange handleChange={(e)=>console.log(e)} value=''></InputChange> */}
 
-      
+
       {/* <Container styleHead={ {border: '1px solid black', padding: '1rem'}}/> */}
 
-<SimpleLogIn/>
+      {/* <SimpleLogIn/> */}
+      <ComplexLogin />
     </div>
   );
 }
 
 export default App;
 
-103- useState future value :
-useState whose initial value is known at the future poibt of timw
+// 105 - usereducer hook
+
 
 
 
