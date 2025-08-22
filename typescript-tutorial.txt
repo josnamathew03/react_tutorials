@@ -1,28 +1,29 @@
 typescript basics:
 
-
     🟦 What TypeScript is
     TypeScript is a superset of JavaScript.
     That means every valid JavaScript code is also valid TypeScript.
     TypeScript just adds extra features on top of JavaScript, mainly static typing (checking variable, function, and object types before running the code).
+    ts is js with type checking
  
 relation to js:                                     
--optional static typing and type inference
--IDE support
+    -optional static typing and type inference                   
+    -IDE support
 
-TypeScript doesn’t run directly — it must be compiled (transpiled) into JavaScript first using tsc.
-After that, you run the compiled .js file with Node.
--tsc main.ts
--node main.js
 
-the file is treated as a script rather than a module
-a module has its own scope where script share global scope
-to remove this add an export statement at the top, by adding import or export typescript treat it as a module 
-automatically recompile the typescript file whenever there is a change
-    tsc main --watch
-        This puts the compiler in watch mode.
-        It means the compiler will keep running and watch for changes in your main.ts file.
-        Every time you save the file, it will automatically recompile and update main.js.
+Transpilation: TypeScript doesn’t run directly — it must be compiled (transpiled) into JavaScript first using tsc.
+    After that, you run the compiled .js file with Node.
+    -tsc main.ts
+    -node main.js
+        
+    the file is treated as a script rather than a module
+    a module has its own scope where script share global scope
+    to remove this add an export statement at the top, by adding import or export typescript treat it as a module 
+    automatically recompile the typescript file whenever there is a change
+        tsc main --watch
+            This puts the compiler in watch mode.
+            It means the compiler will keep running and watch for changes in your main.ts file.
+            Every time you save the file, it will automatically recompile and update main.js.
 
 --------------------------------------------------------------
 Variable declaration:
@@ -31,7 +32,19 @@ let and const are mainly used
 
 --------------------------------------------------------------
 variable types:
+
+
+-Statically typed 
+    know the variacle type while codig and declare accordingly
+    it can hold values of that type only
+
+
+-dynamically typed
+    type is dynamic we can declare that in runtime an dit can be changed
+
+
 boolean, number, string 
+annotating or rxplaining  a variable
 
 let isBeginer : boolean = true
 let total: number = 3
@@ -55,12 +68,37 @@ Errors are caught early, when you compile the .ts file into .js.
     let isNew: boolean | null = null;
     let myName: string | undefined = undefined;
 
+        function greet(name: string | null | undefined){
+        if(name)
+            console.log(name.toLocaleUpperCase)
+        else
+            console.log('hola!')
+        }
+        greet(undefined)
+
 -array that contain value of same type
     let list1: number[] =[1,2]
     let list2: Array<number> =[1,2]
 
--array that contain fixed value of different type(tuple type)
+-tuple type-array that contain fixed value of different type( )
+    tuple is a ficed  lenght array where each elemrnt has a particular type
     let person1: [string,number] = ['chris', 22] //order and number of values should match order and number of types
+    person1[0]. will give you all the methods of string
+    person1[1]. will give you all the methods of number
+-let people: { name: string; age: number }[] = [
+    { name: "Chris", age: 22 },
+    { name: "Luffy", age: 19 },
+    { name: "Zoro", age: 21 }
+    ];
+-Mixing Different Object Types in an Array
+    type Person = { name: string; age: number };
+    type Employee = { id: number; role: string };
+
+    let mixedArray: (Person | Employee)[] = [
+    { name: "Nami", age: 20 },
+    { id: 101, role: "Navigator" }
+    ];
+
 
 -enum
     In TypeScript, an enum (short for enumeration) is a way to give a set of named constants a friendly label.
@@ -70,7 +108,7 @@ Errors are caught early, when you compile the .ts file into .js.
     }
     let c:colors = colors.green
     console.log(c) //outputs 1
-    enum values begin with value 0. so rend has value 0, green 1, blue 2
+    enum values begin with value 0. so red has value 0, green 1, blue 2
 
     enum colors{
         red=5, green, blue
@@ -133,16 +171,75 @@ Errors are caught early, when you compile the .ts file into .js.
             data = 10;
             data = "string";  // no error because it's 'any'
 
+
+TYPE ALIASESS
+type is a Type Alias.
+It lets you create a custom name for a type (instead of repeating it everywhere).
+    type ID = number | string;
+    let userId: ID;
+    userId = 101;    // ✅
+    userId = "abc";  // ✅
+
+    we can make primitive types , union tuypes, intersection type, object  type, function type, literal type , vombining eith array
+using this we can reuse the codes
+        type Employee = {
+        readonly id: number,
+        name: string,
+        retire:(date: Date) => void
+    }
+
+    let employee: Employee = {
+        id :1, 
+        name: 'Miss all sunday',
+        retire(date: Date) {
+            console.log(date)
+        }
+    }
+
+    employee.retire(new Date())
+
 union of types:
     let multitype : number | boolean // type is defined using piping character which combines twoo types 
     multitype = 20;
     multitype = true
 
+    while using this we will get suggeations that is methods that are common to  both the tyoes, we wont get to use all methods , for that we can use narrowinf
+    function kgToLbs(weight: number | string){
+        if(typeof weight === 'number') //narrowing
+                return weight*2.2
+            else{
+                return Number(weight) * 2.2
+            }
+        }
+        console.log(kgToLbs('45'))
+
     usecases are when a value is not under your controll
     union type restricts to the specified type where as any type has no restrictions
     union will support intellicence
 
+-intersection
+    by giving an & it means the value can be both the number and string at the same time
+        type Draggable = {
+            drag : ()=> void
+        }
 
+        type Resizable = {
+            resize : ()=> void
+        }
+
+        type UIWidget = Draggable & Resizable
+
+        let textBox: UIWidget ={
+            drag ()  {},
+            resize () {}
+        }
+    
+Literal
+    let quantity: 50 =50 
+    quantity can only ever be 50
+    If you try quantity = 60, TypeScript will throw an error.
+    type Quantity = 50| 100
+    let quantity: Quantity = 100
 --------------------------------------------------------------
 functions:
     
@@ -178,8 +275,24 @@ functions:
                 }
             }
 
+-readonly makes a property immutable after initialization.
+    You can only assign it:
+    At the time of declaration, or
+    Inside the constructor.
 
---------------------------------------------------------------
+-   const person: {
+    name: string;
+    greet: () => string;
+    } = {
+    name: "Zoro",
+    greet: () => ""  // temporary
+    };
+
+
+
+
+
+    --------------------------------------------------------------
 
 interface:
     we can specify object as a type
@@ -251,3 +364,42 @@ protected :
 
 
 --------------------------------------------------------------
+
+generics in typescript:
+Generics let you create reusable components that work with different types without losing type safety.
+👉 Think of them as placeholders for types (like variables, but for types).
+Example:
+    function identity<T>(value: T): T {
+    return value;
+    }
+    console.log(identity<string>("hello")); // returns string
+    console.log(identity<number>(100));     // returns number
+
+ Generic with Multiple Types
+    function merge<T, U>(obj1: T, obj2: U): T & U {
+    return { ...obj1, ...obj2 };
+    }
+
+    let person = merge({ name: "zoro" }, { age: 21 });
+    console.log(person.name, person.age); // ✅ works
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ let name: string = 'jos';
 
 let sentance: string = `i am ${name}
 i am a beginner in typescript`;
-
+ 
 console.log(sentance);
 
 let n: null = null;
