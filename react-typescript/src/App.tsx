@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { visitParameterList } from 'typescript';
@@ -18,6 +18,9 @@ import { types } from 'util';
 import SimpleLogIn from './component/useState/SimpleLogIn';
 import ComplexLogin from './component/useState/ComplexLogin';
 import Counter from './component/useReducer/Counter';
+
+import Box from './component/useContext/Box';
+import { ThemeContextProvider } from './component/useContext/ThemeContext';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -62,14 +65,28 @@ function App() {
       {/* <SimpleLogIn/> */}
       {/* <ComplexLogin /> */}
 
-      <Counter/>
+      {/* <Counter/> */}
+      <ThemeContextProvider>
+        <Box/>
+
+      </ThemeContextProvider>
     </div>
   );
 }
 
 export default App;
 
-
+// 107: useContext hook:
+// React createContext() — Quick Notes
+// With Initial Value
+//   Safe fallback if Provider is not used.
+//   Provider value always overrides the default.
+// Witout Initial Value
+//   Returns undefined if no Provider is used.
+//   Forces you to wrap with Provider → ensures value must be supplied.
+// Rule of Thumb
+//   Use initial value for defaults/fallbacks.
+//   Use no initial value to enforce Provider usage.
 
 
 
