@@ -18,9 +18,12 @@ import { types } from 'util';
 import SimpleLogIn from './component/useState/SimpleLogIn';
 import ComplexLogin from './component/useState/ComplexLogin';
 import Counter from './component/useReducer/Counter';
-
+import ThemeContext from './component/useContext/ThemeContext';
 import Box from './component/useContext/Box';
-import { ThemeContextProvider } from './component/useContext/ThemeContext';
+import User from './component/useContext/User';
+import { UserDetailsContext } from './component/useContext/UserDetailsContext';
+import { UserDetails } from './component/useContext/UserDetailsContext';
+
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -66,27 +69,48 @@ function App() {
       {/* <ComplexLogin /> */}
 
       {/* <Counter/> */}
-      <ThemeContextProvider>
-        <Box/>
 
-      </ThemeContextProvider>
+      {/* <ThemeContext>
+        <Box/>
+      </ThemeContext> */}
+
+     <UserDetails>
+      <User/>
+     </UserDetails>
+
     </div>
   );
 }
 
 export default App;
 
-// 107: useContext hook:
-// React createContext() — Quick Notes
-// With Initial Value
-//   Safe fallback if Provider is not used.
-//   Provider value always overrides the default.
-// Witout Initial Value
-//   Returns undefined if no Provider is used.
-//   Forces you to wrap with Provider → ensures value must be supplied.
-// Rule of Thumb
-//   Use initial value for defaults/fallbacks.
-//   Use no initial value to enforce Provider usage.
+// 108- useContext with future value:
+// we are creation a user file which has two butttons log in and log out 
+// on logged in we store the user data ie email and name
+// on logged out we clear the userdata
+// we display these details too
+
+// we have another file UserDetailsContext whiuch contain a type for the userdetails 
+// create a new context whose initial value is null since we dont the value of context outside a component
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

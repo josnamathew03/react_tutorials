@@ -1,9 +1,15 @@
-import { useContext } from 'react'
-import { ThemeContext } from './ThemeContext'
+import { useContext } from "react"
+import { ContextTheme } from "./ThemeContext"
+
 
 const Box = () => {
-    const theme = useContext(ThemeContext)
-    return <div style={{backgroundColor: theme.primary.main}}>Theme Context</div>
+    const theme = useContext(ContextTheme)
+
+    return (
+        <div style={{ backgroundColor: theme.secondary.main }}>
+            Theme context
+        </div>
+    )
 }
 
 export default Box

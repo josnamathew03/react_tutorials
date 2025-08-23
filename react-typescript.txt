@@ -115,6 +115,29 @@ discriminatrd union:
 
 ------------------------------------------------------------------
 
+107: useContext hook:
+React createContext() — Quick Notes
+With Initial Value
+  Safe fallback if Provider is not used.
+  Provider value always overrides the default.
+Witout Initial Value
+  Returns undefined if no Provider is used.
+  Forces you to wrap with Provider → ensures value must be supplied.
+Rule of Thumb
+  Use initial value for defaults/fallbacks.
+  Use no initial value to enforce Provider usage.
+
+we are creating a theme object in theme.ts that is used as the context value
+in ThemeContext we are creating a new context and passed a default value theme object
+then we specigy the ThemeContextProvider class which returns provider value and children inside it
+we specify the type of the children in there
+in app.js ThemeContextProvider is called with box as cildren 
+so insdie box we can now acess the context using useContext and give tge style
+
+Here, you didn’t specify a type for the context.
+Since you directly passed theme as the default value, TypeScript infers the type of the context automatically from whatever theme is.
+
+here the context value is predefined so we can use like this
 
 
 ------------------------------------------------------------------
