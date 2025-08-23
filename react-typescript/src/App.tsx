@@ -92,6 +92,12 @@ export default App;
 
 // we have another file UserDetailsContext whiuch contain a type for the userdetails 
 // create a new context whose initial value is null since we dont the value of context outside a component
+// there we specify the type of userDetails, chldrn props, 
+// wwe use set state to store the state of the UserDetails
+// pass these using context and acess it in hte user compoenent
+// initialize these in App.js call user as child
+
+
 
 
 

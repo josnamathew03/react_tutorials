@@ -15,13 +15,11 @@ const User = () => {
                 email: 'siwsas@gmail.com'
             })
         }
-
     }
     const handleLogout = () => {
         if (userdetails) {
             userdetails.setUser(null)
         }
-
     }
     return (
         <div>
