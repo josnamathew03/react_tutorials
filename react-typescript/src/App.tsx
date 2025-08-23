@@ -17,6 +17,7 @@ import Container from './component/styleProps/Container';
 import { types } from 'util';
 import SimpleLogIn from './component/useState/SimpleLogIn';
 import ComplexLogin from './component/useState/ComplexLogin';
+import Counter from './component/useReducer/Counter';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -59,14 +60,14 @@ function App() {
       {/* <Container styleHead={ {border: '1px solid black', padding: '1rem'}}/> */}
 
       {/* <SimpleLogIn/> */}
-      <ComplexLogin />
+      {/* <ComplexLogin /> */}
+
+      <Counter/>
     </div>
   );
 }
 
 export default App;
-
-// 105 - usereducer hook
 
 
 

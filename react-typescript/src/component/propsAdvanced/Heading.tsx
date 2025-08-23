@@ -3,10 +3,10 @@ type props = {
     children:string
 }
 
-const Heading = (prop:props) => {
+const Heading = ({children}:props) => {
   return (
     <div>
-      {prop.children}
+      {children}
     </div>
   )
 }
