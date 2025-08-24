@@ -142,14 +142,63 @@ here the context value is predefined so we can use like this
 
 ------------------------------------------------------------------
 
+108- useContext with future value:
+we are creation a user file which has two butttons log in and log out 
+on logged in we store the user data ie email and name
+on logged out we clear the userdata
+we display these details too
+
+we have another file UserDetailsContext whiuch contain a type for the userdetails 
+create a new context whose initial value is null since we dont the value of context outside a component
+there we specify the type of userDetails, chldrn props, 
+wwe use set state to store the state of the UserDetails
+pass these using context and acess it in hte user compoenent
+initialize these in App.js call user as child
+
+------------------------------------------------------------------
+
+109- useRef hook:
+ref can be used in two scenerios:
+- as a readonly ref for DOm Element
+  1️⃣ useRef<HTMLInputElement>(null)
+  Here, you are creating a ref that will point to a DOM element of type HTMLInputElement.
+  The generic <HTMLInputElement> tells TypeScript:
+  “This ref will always be pointing to an input element, so current will have all the properties of an input element (like .focus(), .value, etc.).”
+  You initialize it with null because initially there is no element attached until React renders it.
+
+  useEffect(() => { inputRef.current?.focus() })
+  useEffect runs after the component mounts.
+  inputRef.current now points to the actual <input> DOM element because React has attached the ref.
+  ?.focus() safely calls the .focus() method only if current is not null.
+  Effect: The input box will automatically get focus when the component renders.
+
+  const inputRef = useRef<HTMLInputElement>(null!)
+  What null! means
+  The ! is called the non-null assertion operator in TypeScript.
+  It tells TypeScript:
+  “I know this value will not be null or undefined at runtime, so don’t complain about it being potentially null.”
+  now we can use focuse without optional chaining
+
+
+-mutable value ehich can behave  like an instance variable
 
 
 ------------------------------------------------------------------
 
+110- class component:
+while creating class components we have to take care of two thigs 
+ie specify the type of proosp and state
+connect these types to the class component
 
-
-------------------------------------------------------------------
-
+   type messageprops={
+          message: string
+      }
+      type stateType={
+          count: number
+      }
+  
+  export class ClassCounter extends Component<messageprops,stateType> {
+     we can choose to include juat props or state according to the need
 
 
 ------------------------------------------------------------------

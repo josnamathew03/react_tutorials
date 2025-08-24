@@ -1,26 +1,25 @@
-import { createContext, useState } from "react"
+import React, { useState } from "react"
+import { createContext } from "react"
 
-export type userProps = {
+export type userDetails ={
     name: string,
-    email:string
+    email: string
 }
-type userContextType = {
-    user: userProps | null,
-    setUser: React.Dispatch<React.SetStateAction<userProps | null>>
+type contextType ={
+    user: userDetails |null,
+    setUser:  React.Dispatch<React.SetStateAction<userDetails | null>>
 }
 type childrenProps = {
     children: React.ReactNode
 }
+// export const UserContext = createContext<contextType| null>(null)
+export const UserContext = createContext({} as contextType)
 
-export const UserDetailsContext = createContext({} as userContextType)
 
-export const UserDetails = ({children}: childrenProps)=>{
-    const [user,setUser] = useState<userProps | null>(null)
-    return <UserDetailsContext.Provider value={{user,setUser}}>
+export const UserDetailsContext = ({children}: childrenProps)=>{
+    
+    const [user,setUser] = useState<userDetails | null>(null)
+    return <UserContext.Provider value={{user,setUser}}>
         {children}
-    </UserDetailsContext.Provider>
+    </UserContext.Provider>
 }
-
-
-
-

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { Component, useContext, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { visitParameterList } from 'typescript';
@@ -22,8 +22,11 @@ import ThemeContext from './component/useContext/ThemeContext';
 import Box from './component/useContext/Box';
 import User from './component/useContext/User';
 import { UserDetailsContext } from './component/useContext/UserDetailsContext';
-import { UserDetails } from './component/useContext/UserDetailsContext';
-
+import DomRef from './component/useeRef/DomRef';
+import MutableRef from './component/useeRef/MutableRef';
+import ClassCounter from './component/class/ClassCounter';
+import Private from './component/compoenentProp/Private';
+import { Profile } from './component/compoenentProp/Profile';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -73,10 +76,17 @@ function App() {
       {/* <ThemeContext>
         <Box/>
       </ThemeContext> */}
+{/* <UserDetailsContext>
+  <User/>
+</UserDetailsContext> */}
 
-     <UserDetails>
-      <User/>
-     </UserDetails>
+
+{/* <DomRef/>
+<MutableRef/> */}
+
+{/* <ClassCounter message='count is'/> */}
+
+<Private  isLoggedIn={true} component={Profile}/>
 
     </div>
   );
@@ -84,18 +94,22 @@ function App() {
 
 export default App;
 
-// 108- useContext with future value:
-// we are creation a user file which has two butttons log in and log out 
-// on logged in we store the user data ie email and name
-// on logged out we clear the userdata
-// we display these details too
+// 111- compoent prop:
+// we got 3 compoennt 
+//   a Component login that says please login to continue
+//   a compoennt profile that says private profile Component
+//   prive.jsx compoennt which shoes the compoennt by checking whether logged in or not, it take two parameter as props taht is is Logged in and the compoennt to show if logged in
 
-// we have another file UserDetailsContext whiuch contain a type for the userdetails 
-// create a new context whose initial value is null since we dont the value of context outside a component
-// there we specify the type of userDetails, chldrn props, 
-// wwe use set state to store the state of the UserDetails
-// pass these using context and acess it in hte user compoenent
-// initialize these in App.js call user as child
+// specify type for the props for react component it si react.componenttype
+// pass the props and receive it and specify the type
+// type PrivateProps={
+//   isLoggedIn: boolean
+//   component: React.ComponentType<profileProps>
+// } 
+// if you have to acess props in props compoennt sepcify that in angle brackets
+
+
+
 
 
 

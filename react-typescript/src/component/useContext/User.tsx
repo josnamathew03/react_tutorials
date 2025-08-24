@@ -1,33 +1,23 @@
-import { useContext } from "react"
-import { userProps } from "./UserDetailsContext"
-import { UserDetailsContext } from "./UserDetailsContext"
-
-
+import React, { useContext } from 'react'
+import { UserContext } from './UserDetailsContext'
+import { userDetails } from './UserDetailsContext'
 
 const User = () => {
-
-    const userdetails = useContext(UserDetailsContext)
- 
+    const user = useContext(UserContext)
     const handleLogin = () => {
-        if (userdetails) {
-            userdetails.setUser({
-                name: 'vishwas',
-                email: 'siwsas@gmail.com'
-            })
-        }
+        user.setUser({
+            name: 'jhurt',
+            email:'hbfgbae'
+        })
     }
     const handleLogout = () => {
-        if (userdetails) {
-            userdetails.setUser(null)
-        }
+        user.setUser(null)
     }
     return (
         <div>
-            <button onClick={handleLogin}>log in</button>
-            <button onClick={handleLogout}>log out</button>
-            <div>user name is {userdetails?.user?.name}</div>
-            <div>user email is {userdetails?.user?.email}</div>
-
+            <button onClick={handleLogin}>Log in</button>
+            <button onClick={handleLogout}>Log out</button>
+            <div>{user.user?.name} {user.user?.email}</div>
         </div>
     )
 }
