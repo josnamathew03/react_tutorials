@@ -28,6 +28,7 @@ import ClassCounter from './component/class/ClassCounter';
 import Private from './component/compoenentProp/Private';
 import { Profile } from './component/compoenentProp/Profile';
 import ListRendering from './component/generic/ListRendering';
+import RandomNum from './component/restrictions/RandomNum';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -89,20 +90,30 @@ function App() {
 
 {/* <Private  isLoggedIn={true} component={Profile}/> */}
 
-<ListRendering
+{/* <ListRendering
   items={['ajfr','jis']}
   clickHandle={(value)=>{
     console.log(value)
   }}
 />
+<ListRendering
+ items={[
+   { id: 1, name: 'jos', age: 20 },
+    { id: 2, name: 'mat', age: 22 }
+ ]}
+ clickHandle={(item) =>{
+  console.log(item)
+ }} 
+ 
+ />*/}
+
+<RandomNum value={10} isNegative />
 
     </div>
   );
 }
 
 export default App;
-
-
 
 
 

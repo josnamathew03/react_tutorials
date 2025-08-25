@@ -257,6 +257,20 @@ That object must have a property id of type number.
 
 ------------------------------------------------------------------
 
+113- restricting props:
+random number which has propos ispositive isnegative iszero 
+while using that component we havet o spcify the number and any one these this.props.
+but if wwe specxify one prop there is still chance to specify all othrrs we have to restrict that
+when one property is passed the others needs to be disallowed
+specify seperate props for each propery
+& -This creates a new type that has all properties from numberProps AND isPositive.
+never type:
+  you van never set isNegative and isPositive as a proop when you set isZero prop
+  type zeroProps = numberProps & {
+    isZero: boolean
+    isPositive?: never
+    isNegative?: never
+  }
 
 
 ------------------------------------------------------------------
