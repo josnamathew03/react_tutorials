@@ -29,6 +29,11 @@ import Private from './component/compoenentProp/Private';
 import { Profile } from './component/compoenentProp/Profile';
 import ListRendering from './component/generic/ListRendering';
 import RandomNum from './component/restrictions/RandomNum';
+import Toast from './component/tempalate-literals/Toast';
+import Button from './component/html/Button';
+import Input from './component/html/Input';
+import Article from './component/polymorphic/Article';
+
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -107,22 +112,26 @@ function App() {
  
  />*/}
 
-<RandomNum value={10} isNegative />
+{/* <RandomNum value={10} isNegative /> */}
+
+{/* <Toast position={"center"}/> */}
+
+{/* <Button varient={'primary'} onClick={()=> console.log('clicked')}>Primary</Button>
+
+<Input className='uhfu' type='text'/>*/}
+
+<Article size='lg' as='h1'>Heading</Article>
+<Article size='md' as='p'>Paragraph</Article>
+<Article size='sm' color='secondary' as='label' htmlFor='some'>label</Article>
+
+
+
 
     </div>
   );
-}
+} 
 
 export default App;
-
-
-
-
-
-
-
-
-
 
 
 

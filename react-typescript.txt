@@ -275,19 +275,97 @@ never type:
 
 ------------------------------------------------------------------
 
-
-
-------------------------------------------------------------------
-
-
-
+114- template literals and excluide:
+combine value to create a whole new value
+Toast.tsx
 
 ------------------------------------------------------------------
 
+115- wrapping html elements:
+wrap html elemrnts which can be used in react application
+apart from varient prop react also include 
 
+React.ComponentProps<'button'>
+This is a TypeScript utility type.
+s all props that a native <button> element accepts (onClick, disabled, type, className, etc.).
+Basically, it reuses the built-in button props without you manually writing them.
 
+({ varient, children, ...rest }: buttonProp)
+Here we are pulling out varient and children from props.
+Everything else (like onClick, disabled, type, etc.) gets collected into rest.
+
+omit- takes an object type anf omit the specified properties
+now in button we can pass childrens which is of any type we hae to retstrict that to just strings
+we need to leave out the button from the html button element type using omit
 
 ------------------------------------------------------------------
+
+116- extracting vompoennt prop typed:
+we may want to reuse a compoennets props type but you dont have acess ti the types itself because it is from a library that you dont have avrss toString.
+you van extract prop types of an existing componrnt
+Customcompoent props which needs exact same props as the greet compoennt although we can jsut export type from gret , suppose we dont ahve control over it 
+we can use component props to extraxt theprops of the grid component
+  
+  const CustomComponent = (props: React.ComponentProps<typeof Greet>) => {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+
+  we can extract prop tytpe of one component ans use it for another component
+
+------------------------------------------------------------------
+
+// 117- pollymorphic components:
+
+In React + TypeScript, a polymorphic component is a reusable component that can render as different HTML elements or custom components, while still preserving type safety.
+Instead of making separate components like Heading, Paragraph, Label… you create one flexible component (Article) and decide its "shape" using an as prop.
+// we create a simple text compoennt with some props and use it 
+// using that we are rendering heading paragreaoh and all
+but whatever we render is coming inside div tag
+we spwcify an "as" prop we want html element to behave like these various things based on as  porp
+accept as prop and specify type
+  type textProp = {
+    size?: 'sm' | 'md' | 'lg'
+    color?: 'primary' | 'secondary'
+    children: React.ReactNode
+    as: React.ElementType   // 👈 KEY: this makes it polymorphic
+  }
+JSX rule:
+
+Capitalized variables (Component) → treated as components/elements.
+That’s why we rename as → Component before rendering.
+
+component is not capable of handling html elemetn prop 
+labrl typically has for attributr but adding tha will generate error
+<Article as="a">Link</Article>   // ✅ compiles
+// but <a> without href is meaningless
+TypeScript didn’t warn you that <a> usually needs href.
+
+🔎 What happens here?
+E extends React.ElementType
+E is a generic type parameter that represents the element you want to render ("h1", "p", "a", etc).
+
+textOwnProp<E>
+Your custom props (size, color, children, and as).
+
+React.ComponentProps<E>
+Built-in utility that extracts all valid props for the given element type.
+If E = "a", then it includes href, target, etc.
+If E = "label", then it includes htmlFor.
+
+textProp<E>
+Combines your custom props with the native props of the element chosen by as.
+
+
+Let’s say you add a prop color.
+But <label> also has a color attribute (if you consider style, or some components might already use color).
+TypeScript now sees two conflicting definitions for color:
+One from your custom textOwnProp
+One from React.ComponentProps<'label'>
+👉 That’s a name collision / duplicate type definition.
 
 
 
