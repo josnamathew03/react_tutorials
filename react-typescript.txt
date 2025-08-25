@@ -203,11 +203,57 @@ connect these types to the class component
 
 ------------------------------------------------------------------
 
+111- compoent prop:
+we got 3 compoennt 
+  a Component login that says please login to continue
+  a compoennt profile that says private profile Component
+  prive.jsx compoennt which shoes the compoennt by checking whether logged in or not, it take two parameter as props taht is is Logged in and the compoennt to show if logged in
 
+specify type for the props for react component it si react.componenttype
+pass the props and receive it and specify the type
+type PrivateProps={
+  isLoggedIn: boolean
+  component: React.ComponentType<profileProps>
+} 
+if you have to acess props in props compoennt sepcify that in angle brackets
 
 ------------------------------------------------------------------
 
+112-generic type:
+we render a list of items which is string using types and prps correctly
+but if that list is a list of number, we can change the props type to acccept either string or number
+  type ListProps ={
+    items: string[] | number[]
+    clickHandle: (value: string| number) => void
+}
+this is again specific to items being string or number
+what if it si an arrayh of objects
+tell typescript that the type of item the onclick handler item can vary using genericss
 
+-add a generic type to props using <T>
+  type ListProps<T> ={
+    items: T[]
+    clickHandle: (value: T) => void
+  }
+  typescript doent know what exactly is T is, fo rthat we need to specify what T is, <T extends {}> T needs to extend base tytpe ie an empty object sothat that covers eveythungv(the least restrictions ehile passing props)
+   we can nowo passa nyhting and wont haver rror
+   Actually, extends {} is kind of a weak constraint.
+  It still allows almost everything except null and undefined.
+  So:
+  ✅ string → allowed (because string extends {} in TypeScript’s loose sense)
+  ✅ number → allowed
+  ✅ object → allowed
+  ❌ null, undefined → not allowed
+
+- if we eant to have rerstrictionss on what generic type can be 
+    <T extends number|s tring > accepts only array of number or strings
+
+-constrains for adding id property 
+  <T extends {id: numer }> this ensures we can safely add item.id to the key prop list item
+This means:
+T is a generic type.
+It must be an object.
+That object must have a property id of type number.
 
 ------------------------------------------------------------------
 

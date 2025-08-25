@@ -27,6 +27,7 @@ import MutableRef from './component/useeRef/MutableRef';
 import ClassCounter from './component/class/ClassCounter';
 import Private from './component/compoenentProp/Private';
 import { Profile } from './component/compoenentProp/Profile';
+import ListRendering from './component/generic/ListRendering';
 function App() {
   // let name:string = 'crocodile'
   const person = {
@@ -86,7 +87,14 @@ function App() {
 
 {/* <ClassCounter message='count is'/> */}
 
-<Private  isLoggedIn={true} component={Profile}/>
+{/* <Private  isLoggedIn={true} component={Profile}/> */}
+
+<ListRendering
+  items={['ajfr','jis']}
+  clickHandle={(value)=>{
+    console.log(value)
+  }}
+/>
 
     </div>
   );
@@ -94,19 +102,7 @@ function App() {
 
 export default App;
 
-// 111- compoent prop:
-// we got 3 compoennt 
-//   a Component login that says please login to continue
-//   a compoennt profile that says private profile Component
-//   prive.jsx compoennt which shoes the compoennt by checking whether logged in or not, it take two parameter as props taht is is Logged in and the compoennt to show if logged in
 
-// specify type for the props for react component it si react.componenttype
-// pass the props and receive it and specify the type
-// type PrivateProps={
-//   isLoggedIn: boolean
-//   component: React.ComponentType<profileProps>
-// } 
-// if you have to acess props in props compoennt sepcify that in angle brackets
 
 
 
